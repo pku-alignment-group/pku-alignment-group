@@ -8,8 +8,8 @@ sections:
   - block: hero
     content:
       title: |
-        Wowchemy
-        Research Group
+        PKU-Alignment
+        Group
       image:
         filename: welcome.jpg
       text: |
