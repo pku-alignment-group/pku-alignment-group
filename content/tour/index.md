@@ -8,18 +8,18 @@ sections:
   - block: slider
     content:
       slides:
-      - title: 👋 Welcome to the group
-        content: Take a look at what we're working on...
+      - title: 👋 ACL 2025 Best Paper
+        content: Group Members at ACL 2025!
         align: center
         background:
           image:
-            filename: coders.jpg
+            filename: ACL 2025 together.jpg
             filters:
               brightness: 0.7
           position: right
           color: '#666'
-      - title: Lunch & Learn ☕️
-        content: 'Share your knowledge with the group and explore exciting new topics together!'
+      - title: Professor Yang Yaodong took part in the 2025 China · AI Festival aired on CCTV-1. 
+        content: 'Say:'
         align: left
         background:
           image:

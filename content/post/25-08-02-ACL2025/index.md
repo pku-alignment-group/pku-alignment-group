@@ -1,6 +1,6 @@
 ---
-title: Jian Yang and Monica Hall Win the Best Paper Award at Wowchemy 2020
-date: 2020-12-02
+title: PKU-Alignment Group Win the Best Paper Award at ACL 2025
+date: 2025-08-02
 image:
   focal_point: 'top'
 ---
