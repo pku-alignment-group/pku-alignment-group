@@ -28,9 +28,6 @@ organizations:
 lab_start_date: '2020-03-15'
 lab_end_date: '2023-12-31'
 
-# Short bio (displayed in user profile at end of posts)
-bio: 专注于机器学习理论与算法优化，在深度学习与计算机视觉领域有丰富经验。
-
 interests:
   - Reinforcement Learning
   - Value Alignment

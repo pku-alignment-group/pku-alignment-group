@@ -27,8 +27,7 @@ organizations:
 lab_start_date: '2019-09-01'
 # lab_end_date: '2024-08-31'  # 如果已离开实验室，请取消注释并填写结束日期
 
-# Short bio (displayed in user profile at end of posts)
-bio: 专注于人工智能对齐与安全研究，致力于构建可信赖的AI系统。
+
 
 interests:
   - 人工智能对齐
