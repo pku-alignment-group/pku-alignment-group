@@ -7,3 +7,563 @@
 .cta-group {
   justify-content: center;
 }
+
+// 参考Stanford CV Lab的People页面设计
+.people-widget-stanford {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  // 移除固定背景色，继承主题背景
+
+  // 页面标题区域
+  .section-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: #333;
+      letter-spacing: 0.5px;
+      margin: 0;
+      
+      // 夜间模式
+      @media (prefers-color-scheme: dark) {
+        color: #e0e0e0;
+      }
+      .dark & {
+        color: #e0e0e0;
+      }
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      font-weight: 300;
+      margin-top: 0.5rem;
+      
+      // 夜间模式
+      @media (prefers-color-scheme: dark) {
+        color: #a0a0a0;
+      }
+      .dark & {
+        color: #a0a0a0;
+      }
+    }
+  }
+
+  .section-description {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    
+    // 夜间模式
+    @media (prefers-color-scheme: dark) {
+      color: #b0b0b0;
+    }
+    .dark & {
+      color: #b0b0b0;
+    }
+  }
+
+  // 核心成员（Faculty）- 左图右文布局
+  .faculty-section {
+    margin-bottom: 4rem;
+
+    .faculty-member {
+      display: flex;
+      align-items: stretch; // 让子元素等高伸展
+      margin-bottom: 3rem;
+      padding: 0;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 2rem;
+      
+      // 夜间模式
+      @media (prefers-color-scheme: dark) {
+        border-bottom-color: #404040;
+      }
+      .dark & {
+        border-bottom-color: #404040;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+
+    .faculty-photo {
+      flex: 0 0 180px; // 稍微减少宽度给文本更多空间
+      margin-right: 1.5rem; // 减少右边距让两部分更靠近
+      text-align: center;
+      display: flex;
+      align-items: flex-start; // 照片顶部对齐
+
+      .faculty-img {
+        width: 160px; // 稍微增加照片尺寸
+        height: 200px; // 设置固定高度确保等高
+        object-fit: cover; // 保持图片比例不变形
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+
+      .faculty-img-placeholder {
+        width: 160px;
+        height: 200px; // 设置与照片相同的固定高度
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: 600;
+      }
+    }
+
+    .faculty-bio {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; // 内容从顶部开始
+      height: 200px; // 设置与照片相同的固定高度
+      padding: 0; // 移除内边距确保与照片对齐
+      
+      .faculty-name {
+        font-size: 1.15rem;
+        line-height: 1.25;
+        margin-bottom: 0.1rem;
+        padding-bottom: 0.1rem;
+        border-bottom: 1px solid #d0d0d0;
+        
+        // 夜间模式
+        @media (prefers-color-scheme: dark) {
+          border-bottom-color: #505050;
+        }
+        .dark & {
+          border-bottom-color: #505050;
+        }
+        
+        a {
+          color: #333;
+          text-decoration: none;
+          
+          // 夜间模式
+          @media (prefers-color-scheme: dark) {
+            color: #e0e0e0;
+          }
+          .dark & {
+            color: #e0e0e0;
+          }
+          
+          &:hover {
+            color: #0066cc;
+            
+            // 夜间模式
+            @media (prefers-color-scheme: dark) {
+              color: #66b3ff;
+            }
+            .dark & {
+              color: #66b3ff;
+            }
+          }
+        }
+      }
+
+      .faculty-positions {
+        margin-bottom: 0.0rem;
+        
+        .faculty-position {
+          margin-bottom: 0.15rem;
+          font-size: 0.9rem;
+          color: #333;
+          line-height: 1.25;
+          
+          // 夜间模式
+          @media (prefers-color-scheme: dark) {
+            color: #d0d0d0;
+          }
+          .dark & {
+            color: #d0d0d0;
+          }
+        }
+
+        .faculty-department {
+          margin-bottom: 0.15rem;
+          font-size: 0.9rem;
+          color: #333;
+          
+          // 夜间模式
+          @media (prefers-color-scheme: dark) {
+            color: #d0d0d0;
+          }
+          .dark & {
+            color: #d0d0d0;
+          }
+        }
+      }
+
+      .contact-table {
+        border-collapse: collapse;
+        margin-top: 0;
+        width: 100%;
+        
+        tr {
+          background-color: transparent !important;
+        }
+        
+        td {
+          padding: 0.15rem 0;
+          vertical-align: top;
+          font-size: 0.85rem;
+          line-height: 1.2;
+          background-color: transparent !important;
+          
+          &:first-child {
+            font-weight: bold;
+            color: #333;
+            padding-right: 1rem;
+            width: 80px;
+            min-width: 80px;
+            max-width: 80px;
+            text-align: left;
+            white-space: nowrap;
+            
+            // 夜间模式
+            @media (prefers-color-scheme: dark) {
+              color: #e0e0e0;
+            }
+            .dark & {
+              color: #e0e0e0;
+            }
+          }
+          
+          &:last-child {
+            color: #555;
+            width: auto;
+            
+            // 夜间模式
+            @media (prefers-color-scheme: dark) {
+              color: #b0b0b0;
+            }
+            .dark & {
+              color: #b0b0b0;
+            }
+          }
+        }
+        
+        a {
+          color: #0066cc;
+          text-decoration: none;
+          
+          // 夜间模式
+          @media (prefers-color-scheme: dark) {
+            color: #66b3ff;
+          }
+          .dark & {
+            color: #66b3ff;
+          }
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  // 团队成员 - 网格布局（确保四人一行）
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; // 增加间距
+    margin-top: 2rem;
+    max-width: 100%;
+
+    .member {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      text-align: center;
+      padding: 1.2rem 0.8rem; // 增加内边距，给每个学生更多空间
+      transition: all 0.3s ease;
+      max-width: 100%;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      .member-img {
+        width: 150px; // 匹配参考设计尺寸
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid #FFF; // 白色边框，匹配参考设计
+        box-shadow: 0 0 7px 0px #AAA; // 阴影效果，匹配参考设计
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 0.8rem auto;
+        
+        // 夜间模式
+        @media (prefers-color-scheme: dark) {
+          border-color: #606060; // 更柔和的深灰色边框
+          box-shadow: 0 0 7px 0px #404040; // 更暗的阴影
+        }
+        .dark & {
+          border-color: #606060;
+          box-shadow: 0 0 7px 0px #404040;
+        }
+      }
+
+      .member-img-placeholder {
+        width: 150px; // 匹配实际照片尺寸
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid #FFF; // 添加白色边框
+        box-shadow: 0 0 7px 0px #AAA; // 添加阴影效果
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin: 0 auto 0.8rem auto;
+        
+        // 夜间模式
+        @media (prefers-color-scheme: dark) {
+          border-color: #606060; // 更柔和的深灰色边框
+          box-shadow: 0 0 7px 0px #404040; // 更暗的阴影
+        }
+        .dark & {
+          border-color: #606060;
+          box-shadow: 0 0 7px 0px #404040;
+        }
+      }
+
+      .member-bio {
+        max-width: 180px; // 增加文字宽度允许更长的姓名和角色显示
+        margin: 0 auto;
+        
+        .member-name {
+          font-size: 0.75rem; // 减小字体大小
+          font-weight: bold; // 姓名加粗，匹配参考设计
+          margin-bottom: 0.3rem;
+          color: #333;
+          line-height: 1.1;
+          white-space: nowrap; // 确保不换行
+          overflow: hidden;
+          text-overflow: ellipsis; // 过长时显示省略号
+          
+          // 夜间模式
+          @media (prefers-color-scheme: dark) {
+            color: #e0e0e0;
+          }
+          .dark & {
+            color: #e0e0e0;
+          }
+        }
+
+        .member-email {
+          font-size: 0.65rem; // 邮箱字体更小
+          color: #666;
+          margin-bottom: 0.6rem;
+          white-space: nowrap; // 确保邮箱不换行
+          overflow: hidden;
+          text-overflow: ellipsis; // 过长时显示省略号
+          line-height: 1.1;
+          
+          // 夜间模式
+          @media (prefers-color-scheme: dark) {
+            color: #a0a0a0;
+          }
+          .dark & {
+            color: #a0a0a0;
+          }
+        }
+
+        .member-tags {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          width: 100%;
+          
+          .research-tag {
+            background: #f5f5f5;
+            color: #666;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            line-height: 1.2;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            
+            // 夜间模式
+            @media (prefers-color-scheme: dark) {
+              background: #2d2d2d;
+              color: #c0c0c0;
+            }
+            .dark & {
+              background: #2d2d2d;
+              color: #c0c0c0;
+            }
+            
+            &:hover {
+              background: #eeeeee;
+              
+              // 夜间模式
+              @media (prefers-color-scheme: dark) {
+                background: #404040;
+              }
+              .dark & {
+                background: #404040;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 响应式设计
+  @media (max-width: 1200px) {
+    // 大屏幕到中等屏幕，学生部分改为三人一行
+    .members-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    
+    .section-heading h1 {
+      font-size: 2rem;
+    }
+    
+    // 老师部分改为垂直布局
+    .faculty-section .faculty-member {
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+      align-items: center; // 垂直布局时居中对齐
+      
+      .faculty-bio {
+        height: auto; // 移动端取消固定高度
+        margin-top: 1rem;
+        width: 100%; // 确保文本区域充满宽度
+      }
+    }
+    
+    .faculty-section .faculty-photo {
+      margin: 0 0 1.5rem 0;
+      
+      .faculty-img {
+        width: 130px; // 移动端适当缩小
+        height: 170px; // 移动端也保持固定高度比例
+        object-fit: cover; // 保持图片不变形
+      }
+      
+      .faculty-img-placeholder {
+        width: 130px;
+        height: 170px; // 保持与照片相同的高度
+        margin: 0 auto;
+      }
+    }
+    
+    // 学生部分改为两人一行
+    .members-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      
+      .member .member-bio {
+        max-width: 160px; // 稍微放宽文字宽度限制
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-heading h1 {
+      font-size: 1.8rem;
+    }
+    
+    .faculty-section .faculty-member {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    
+    // 移动端学生部分改为一人一行
+    .members-grid {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+
+      .member {
+        padding: 1rem 0.5rem;
+        
+        .member-img,
+        .member-img-placeholder {
+          width: 120px; // 移动端略小但仍保持合理尺寸
+          height: 120px;
+        }
+        
+        .member-img-placeholder {
+          font-size: 2rem;
+        }
+        
+        .member-bio {
+          max-width: 160px; // 单列时放宽文字宽度
+          
+          .member-name {
+            font-size: 1rem;
+          }
+          
+          .member-email {
+            font-size: 0.8rem;
+          }
+          
+          .research-tag {
+            font-size: 0.75rem;
+            padding: 0.35rem 0.6rem;
+            background: #f5f5f5;
+            color: #666;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            
+            // 夜间模式
+            @media (prefers-color-scheme: dark) {
+              background: #2d2d2d;
+              color: #c0c0c0;
+            }
+            .dark & {
+              background: #2d2d2d;
+              color: #c0c0c0;
+            }
+            
+            &:hover {
+              background: #eeeeee;
+              
+              // 夜间模式
+              @media (prefers-color-scheme: dark) {
+                background: #404040;
+              }
+              .dark & {
+                background: #404040;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

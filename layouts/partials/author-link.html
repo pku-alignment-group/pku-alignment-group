@@ -1,0 +1,27 @@
+{{/* 
+Author link partial that supports external_link redirection
+Usage: {{ partial "author-link.html" (dict "author" .author "context" .) }}
+*/}}
+
+{{- $author := .author -}}
+{{- $context := .context -}}
+
+{{/* Try to get the author page */}}
+{{- $authorPage := site.GetPage (printf "/authors/%s" ($author | urlize)) -}}
+
+{{- if $authorPage -}}
+  {{- if $authorPage.Params.external_link -}}
+    {{/* If author has external_link, redirect to external URL */}}
+    <a href="{{ $authorPage.Params.external_link }}" target="_blank" rel="noopener noreferrer" class="author-link">
+      {{- $authorPage.Title -}}
+    </a>
+  {{- else -}}
+    {{/* Default behavior: link to internal author page */}}
+    <a href="{{ $authorPage.RelPermalink }}" class="author-link">
+      {{- $authorPage.Title -}}
+    </a>
+  {{- end -}}
+{{- else -}}
+  {{/* Fallback: just display author name without link */}}
+  <span class="author-name">{{ $author }}</span>
+{{- end -}}

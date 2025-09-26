@@ -9,21 +9,32 @@ last_name: Yang
 # Is this the primary user of the site?
 superuser: true
 
-# Role/position
-role: Assistant Professor at Institute for AI
+# External link to redirect author page
+external_link: 'https://www.yangyaodong.com'
+
+# Role/position - 支持多个角色
+roles:
+  - Assistant Professor
+  - Institute for AI, Peking University
+  - Director of PKU Alignment Group
 
 # Organizations/Affiliations
 organizations:
   - name: Peking University
     url: 'https://www.pku.edu.cn'
 
-# Short bio (displayed in user profile at end of posts)
-# bio: My research interests include distributed robotics, mobile computing and programmable matter.
+# Lab duration (实验室时间)
+lab_start_date: '2019-09-01'
+# lab_end_date: '2024-08-31'  # 如果已离开实验室，请取消注释并填写结束日期
 
-# interests:
-#   - Artificial Intelligence
-#   - Computational Linguistics
-#   - Information Retrieval
+# Short bio (displayed in user profile at end of posts)
+bio: 专注于人工智能对齐与安全研究，致力于构建可信赖的AI系统。
+
+interests:
+  - 人工智能对齐
+  - 强化学习理论
+  - 多智能体系统
+  - AI安全与可解释性
 
 # education:
 #   courses:
@@ -61,7 +72,12 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ''
+email: 'yaodong.yang@outlook.com'
+
+# Additional contact information for faculty layout
+office: 'Room 246 Gates Bldg'
+phone: '(650) 725-3860'
+address: '353 Serra Mall, Gates Building, Stanford, CA, 94305-9020'
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
@@ -71,7 +87,3 @@ highlight_name: true
 user_groups:
   - Group Leader
 ---
-
-<!-- Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. -->

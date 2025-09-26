@@ -1,0 +1,58 @@
+{{/* 
+Link render hook to handle external redirects for author links
+This will intercept all markdown links and check if they point to authors with external_link
+*/}}
+
+{{- $destination := .Destination -}}
+{{- $text := .Text -}}
+{{- $title := .Title -}}
+
+{{/* Check if this is an author link by parsing the destination */}}
+{{- $isAuthorLink := false -}}
+{{- $authorSlug := "" -}}
+
+{{/* Parse destination to check if it is an author link */}}
+{{- if strings.HasPrefix $destination "/author/" -}}
+  {{- $isAuthorLink = true -}}
+  {{- $authorSlug = strings.TrimPrefix "/author/" $destination -}}
+  {{- $authorSlug = strings.TrimSuffix "/" $authorSlug -}}
+{{- else if strings.HasPrefix $destination "../authors/" -}}
+  {{- $isAuthorLink = true -}}
+  {{- $authorSlug = strings.TrimPrefix "../authors/" $destination -}}
+  {{- $authorSlug = strings.TrimSuffix "/" $authorSlug -}}
+{{- else if strings.HasPrefix $destination "/authors/" -}}
+  {{- $isAuthorLink = true -}}
+  {{- $authorSlug = strings.TrimPrefix "/authors/" $destination -}}
+  {{- $authorSlug = strings.TrimSuffix "/" $authorSlug -}}
+{{- end -}}
+
+{{- if $isAuthorLink -}}
+  {{/* This is an author link, check if the author has external_link */}}
+  {{- $authorPage := site.GetPage (printf "/authors/%s" $authorSlug) -}}
+  {{- if not $authorPage -}}
+    {{/* Try to find author by different slug formats */}}
+    {{- $authorPage = site.GetPage (printf "/authors/%s" (strings.Title $authorSlug)) -}}
+  {{- end -}}
+  
+  {{- if and $authorPage $authorPage.Params.external_link -}}
+    {{/* Author has external_link, redirect to external URL */}}
+    <a href="{{ $authorPage.Params.external_link }}" target="_blank" rel="noopener noreferrer"
+       {{- with $title }} title="{{ . }}"{{ end -}}>
+      {{- $text | safeHTML -}}
+    </a>
+  {{- else -}}
+    {{/* Default behavior for author links */}}
+    <a href="{{ $destination | safeURL }}"
+       {{- with $title }} title="{{ . }}"{{ end -}}>
+      {{- $text | safeHTML -}}
+    </a>
+  {{- end -}}
+{{- else -}}
+  {{/* Not an author link, use default rendering */}}
+  {{- $u := urls.Parse $destination -}}
+  <a href="{{ $destination | safeURL }}"
+     {{- with $title }} title="{{ . }}"{{ end -}}
+     {{- if $u.IsAbs }} target="_blank" rel="noopener noreferrer"{{ end -}}>
+    {{- $text | safeHTML -}}
+  </a>
+{{- end -}}

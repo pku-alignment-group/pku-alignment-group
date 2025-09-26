@@ -1,0 +1,213 @@
+{{/* Hugo Blox: People - 参考Stanford CV Lab设计的双布局方案 */}}
+{{/* Documentation: https://hugoblox.com/blocks/ */}}
+{{/* License: https://github.com/HugoBlox/hugo-blox-builder/blob/main/LICENSE.md */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $show_social := $block.design.show_social | default false }}
+{{ $show_interests := $block.design.show_interests | default true }}
+{{ $show_organizations := $block.design.show_organizations | default false }}
+{{ $show_role := $block.design.show_role | default true }}
+
+{{/* Helper function for email protection */}}
+
+<div class="people-widget-stanford">
+  {{ with $block.content.title }}
+    <div class="section-heading">
+      <h1>{{ . | markdownify | emojify }}</h1>
+      {{ with $block.content.subtitle }}<p class="subtitle">{{ . | markdownify | emojify }}</p>{{ end }}
+    </div>
+  {{ end }}
+
+  {{ with $block.content.text }}
+    <div class="section-description">
+      {{ . | emojify | $page.RenderString }}
+    </div>
+  {{ end }}
+
+  {{ range $block.content.user_groups }}
+    {{ $query := where (where site.Pages "Section" "authors") ".Params.user_groups" "intersect" (slice .) }}
+    {{ $isLeader := eq . "Group Leader" }}
+
+    {{/* Sort */}}
+    {{ $sort_by := $block.content.sort_by | default "Params.last_name" }}
+    {{ $sort_by = partial "blox-core/functions/get_sort_by_parameter" $sort_by }}
+    {{ $sort_ascending := $block.content.sort_ascending | default true }}
+    {{ $sort_order := cond $sort_ascending "asc" "desc" }}
+    {{ $query = sort $query $sort_by $sort_order }}
+
+    {{ if $query }}
+      {{ if $isLeader }}
+        {{/* 核心成员 - 左图右文详细布局 */}}
+        <div class="faculty-section">
+          {{ range $query }}
+            {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+            {{/* Get link to user's profile page or external link */}}
+            {{ $link := "" }}
+            {{ $linkTarget := "" }}
+            {{ $linkRel := "" }}
+            {{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
+              {{ if .Params.external_link }}
+                {{ $link = .Params.external_link }}
+                {{ $linkTarget = " target=\"_blank\"" }}
+                {{ $linkRel = " rel=\"noopener noreferrer\"" }}
+              {{ else }}
+                {{ $link = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+
+            <div class="faculty-member">
+              {{/* 左侧头像 */}}
+              <div class="faculty-photo">
+                {{ $src := "" }}
+                {{ if site.Params.features.avatar.gravatar }}
+                  {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 .Params.email) }}
+                {{ else if $avatar }}
+                  {{ $avatar_image := $avatar.Fill "400x500 Center" }}
+                  {{ $src = $avatar_image.RelPermalink }}
+                {{ end }}
+                
+                {{ if $src }}
+                  {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>{{end}}
+                    <img src="{{ $src }}" alt="{{ .Title }}" class="faculty-img">
+                  {{if $link}}</a>{{end}}
+                {{ else }}
+                  <div class="faculty-img-placeholder">
+                    <span>{{ substr .Title 0 1 | upper }}</span>
+                  </div>
+                {{ end }}
+              </div>
+
+              {{/* 右侧详细信息 */}}
+              <div class="faculty-bio">
+                <div class="faculty-name">
+                  {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>{{end}}
+                    <b>{{ .Title }}{{ if .Params.degree }}, {{ .Params.degree }}{{ else }}, Ph.D.{{ end }}</b>
+                  {{if $link}}</a>{{end}}
+                  {{ if .Params.publish_name }}
+                    <br />(publishes under {{ .Params.publish_name }})
+                  {{ end }}
+                </div>
+                
+                <div class="faculty-positions">
+                  {{ if $show_role }}
+                    {{/* 支持多个roles - 检查是否有roles数组 */}}
+                    {{ if .Params.roles }}
+                      {{ range .Params.roles }}
+                        <div class="faculty-position">
+                          {{ . | markdownify | emojify }}
+                        </div>
+                      {{ end }}
+                    {{ else if .Params.role }}
+                      {{/* 向后兼容单个role */}}
+                      <div class="faculty-position">
+                        {{ .Params.role | markdownify | emojify }}
+                      </div>
+                    {{ end }}
+                  {{ end }}
+                  
+                  {{ if and $show_organizations .Params.organizations }}
+                    {{ range .Params.organizations }}
+                      <div class="faculty-department">{{ .name }}</div>
+                    {{ end }}
+                  {{ end }}
+                </div>
+                
+                {{/* 联系方式表格 */}}
+                <table class="contact-table">
+                  <tbody>
+                    {{ if .Params.office }}
+                      <tr><td><b>Office</b></td><td>{{ .Params.office }}</td></tr>
+                    {{ end }}
+                    {{ if .Params.phone }}
+                      <tr><td><b>Phone</b></td><td>{{ .Params.phone }}</td></tr>
+                    {{ end }}
+                    {{ if .Params.email }}
+                      <tr><td><b>Email</b></td><td>{{ .Params.email | replaceRE "@" " [at] " | replaceRE "\\." " [dot] " }}</td></tr>
+                    {{ end }}
+                    {{ range .Params.social }}
+                      {{ if eq .icon "twitter" }}
+                        <tr><td><b>Twitter</b></td><td><a href="{{ .link }}" target="_blank" rel="noopener noreferrer">@{{ .link | replaceRE "https://twitter.com/" "" }}</a></td></tr>
+                      {{ end }}
+                    {{ end }}
+                    {{ if .Params.address }}
+                      <tr><td><b>Address</b></td><td>{{ .Params.address }}</td></tr>
+                    {{ end }}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      {{ else }}
+        {{/* 团队成员 - 网格布局 */}}
+        <div class="members-grid">
+          {{ range $query }}
+            {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+            {{ $link := "" }}
+            {{ $linkTarget := "" }}
+            {{ $linkRel := "" }}
+            {{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
+              {{ if .Params.external_link }}
+                {{ $link = .Params.external_link }}
+                {{ $linkTarget = " target=\"_blank\"" }}
+                {{ $linkRel = " rel=\"noopener noreferrer\"" }}
+              {{ else }}
+                {{ $link = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+
+            {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}} class="member">{{end}}
+              {{/* 圆形头像 */}}
+              {{ $src := "" }}
+              {{ if site.Params.features.avatar.gravatar }}
+                {{ $src = printf "https://s.gravatar.com/avatar/%s?s=150" (md5 .Params.email) }}
+              {{ else if $avatar }}
+                {{ $avatar_image := $avatar.Fill "300x300 Center" }}
+                {{ $src = $avatar_image.RelPermalink }}
+              {{ end }}
+              
+              {{ if $src }}
+                <img src="{{ $src }}" alt="{{ .Title }}" class="member-img">
+              {{ else }}
+                <div class="member-img-placeholder">
+                  <span>{{ substr .Title 0 1 | upper }}</span>
+                </div>
+              {{ end }}
+
+              {{/* 成员信息 - 垂直居中布局 */}}
+              <div class="member-bio">
+                <div class="member-name">
+                  <b>{{ .Title }}</b>
+                  {{/* 支持多个roles - 同行显示 */}}
+                  {{ if .Params.roles }}
+                    {{ range $index, $role := .Params.roles }}
+                      {{ if $index }}, {{ end }}
+                      {{ if or (in $role "Ph.D") (in $role "PhD") }}(Ph.D Student){{ else if or (in $role "Master") (in $role "master") }}(Master Student){{ else if or (in $role "Postdoc") (in $role "postdoc") }}(Postdoc){{ else if or (in $role "Assistant") (in $role "Research Assistant") }}(Research Assistant){{ else }}({{ $role }}){{ end }}
+                    {{ end }}
+                  {{ else if .Params.role }}
+                    {{/* 向后兼容单个role - 同行显示 */}}
+                    {{ if or (in .Params.role "Ph.D") (in .Params.role "PhD") }}(Ph.D Student){{ else if or (in .Params.role "Master") (in .Params.role "master") }}(Master Student){{ else if or (in .Params.role "Postdoc") (in .Params.role "postdoc") }}(Postdoc){{ else if or (in .Params.role "Assistant") (in .Params.role "Research Assistant") }}(Research Assistant){{ else }}({{ .Params.role }}){{ end }}
+                  {{ end }}
+                </div>
+                
+                {{ if .Params.email }}
+                  <div class="member-email">{{ .Params.email | replaceRE "@" " [at] " | replaceRE "\\." " [dot] " }}</div>
+                {{ end }}
+                
+                {{ if and $show_interests .Params.interests }}
+                  <div class="member-tags">
+                    {{ range .Params.interests }}
+                      <div class="research-tag">{{ . }}</div>
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+            {{if $link}}</a>{{end}}
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
