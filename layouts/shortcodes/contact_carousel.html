@@ -1,0 +1,33 @@
+{{ $height := .Get "height" | default "330px" }}
+{{ $interval := .Get "interval" | default "4000" }}
+{{ $wrap := .Get "wrap" | default "true" }}
+{{ $id := printf "contact-carousel-%s" (now | dateFormat "20060102150405") }}
+
+{{ $images := .Page.Resources.Match "images/*" }}
+{{ if not $images }}
+  {{ $images = slice }}
+{{ end }}
+{{ $images = sort $images "Name" }}
+{{ $count := len $images }}
+
+{{ if gt $count 0 }}
+<div id="{{ $id }}" class="carousel slide carousel-fade rounded shadow-sm" data-ride="carousel" data-interval="{{ $interval }}" data-wrap="{{ $wrap }}" style="height: {{ $height }}; overflow: hidden;">
+  <div class="carousel-inner" style="height: 100%;">
+    {{ range $index, $img := $images }}
+      <div class="carousel-item {{ if eq $index 0 }}active{{ end }}" style="height: 100%;">
+        <img src="{{ $img.RelPermalink }}" class="d-block w-100" alt="{{ with $img.Title }}{{ . }}{{ else }}{{ $img.Name }}{{ end }}" style="height: 100%; object-fit: cover;" />
+      </div>
+    {{ end }}
+  </div>
+  {{ if gt $count 1 }}
+  <a class="carousel-control-prev" href="#{{ $id }}" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#{{ $id }}" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

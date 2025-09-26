@@ -240,3 +240,45 @@ function showCopyToast(itemName, text) {
   width: auto;
 }
 </style>
+
+<script>
+(function() {
+  function initCarousels() {
+    if (!(window.bootstrap && bootstrap.Carousel)) return;
+    var nodes = document.querySelectorAll('.carousel');
+    nodes.forEach(function(el) {
+      var intervalAttr = el.getAttribute('data-bs-interval');
+      var wrapAttr = el.getAttribute('data-bs-wrap');
+      var cfg = {
+        interval: intervalAttr ? parseInt(intervalAttr, 10) : 2000,
+        wrap: wrapAttr !== 'false',
+        ride: 'carousel'
+      };
+      try {
+        bootstrap.Carousel.getOrCreateInstance(el, cfg);
+      } catch (e) {
+        // ignore
+      }
+    });
+  }
+
+  function ensureBootstrapAndInit() {
+    if (window.bootstrap && bootstrap.Carousel) {
+      initCarousels();
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
+    script.crossOrigin = 'anonymous';
+    script.referrerPolicy = 'no-referrer';
+    script.onload = initCarousels;
+    document.head.appendChild(script);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureBootstrapAndInit);
+  } else {
+    ensureBootstrapAndInit();
+  }
+})();
+</script>
