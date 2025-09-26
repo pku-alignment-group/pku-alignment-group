@@ -1,0 +1,242 @@
+{{/* Custom navbar template with dropdown and copy functionality for Hugo Blox */}}
+{{ $current_page := . }}
+{{ $show_navbar := site.Params.header.navbar.enable | default true }}
+{{ $show_logo := site.Params.header.navbar.show_logo | default true }}
+{{ $show_language := site.Params.header.navbar.show_language | default false }}
+{{ $show_day_night := site.Params.header.navbar.show_day_night | default false }}
+{{ $show_search := site.Params.header.navbar.show_search | default false }}
+
+{{ if $show_navbar }}
+<header>
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+    
+    {{/* Logo and site title */}}
+    {{ if $show_logo }}
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="{{ "/" | relLangURL }}">
+        {{ $logo := site.Params.logo }}
+        {{ if $logo }}
+          <img src="{{ printf "media/%s" $logo | relURL }}" alt="{{ site.Title }}" class="navbar-logo">
+        {{ else }}
+          {{ site.Title }}
+        {{ end }}
+      </a>
+    </div>
+    {{ end }}
+
+    {{/* Mobile menu toggle button */}}
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+            data-bs-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+
+    {{/* Menu content */}}
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+      <ul class="navbar-nav d-md-inline-flex">
+        {{ range site.Menus.main }}
+          {{ if .Children }}
+            {{/* Dropdown menu */}}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown-{{ .Identifier | default .Name | urlize }}" role="button" 
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                {{ .Name }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbar-dropdown-{{ .Identifier | default .Name | urlize }}">
+                {{ range .Children }}
+                  <li>
+                    {{ if .Params.copyText }}
+                      {{/* Item with copy functionality */}}
+                      <a class="dropdown-item copy-item" href="#" 
+                         data-copy="{{ .Params.copyText }}"
+                         onclick="copyToClipboard('{{ .Params.copyText }}', '{{ .Name }}'); return false;">
+                        {{ .Name }}
+                      </a>
+                    {{ else }}
+                      {{/* Regular link */}}
+                      <a class="dropdown-item" href="{{ .URL }}" 
+                         {{ if strings.HasPrefix .URL "http" }}target="_blank" rel="noopener"{{ end }}>
+                        {{ .Name }}
+                      </a>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ul>
+            </li>
+          {{ else }}
+            {{/* Regular menu item */}}
+            <li class="nav-item">
+              <a class="nav-link {{ if $current_page.IsMenuCurrent "main" . }}active{{ end }}" 
+                 href="{{ .URL | relLangURL }}"
+                 {{ if gt (len .URL) 0 }}{{ if eq (index .URL 0) "#" }}data-target="{{ .URL }}"{{ end }}{{ end }}>
+                {{ .Name }}
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
+
+        {{/* Language switcher */}}
+        {{ if $show_language }}
+          {{ partial "language_selector" . }}
+        {{ end }}
+
+        {{/* Day/night mode toggle */}}
+        {{ if $show_day_night }}
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="dark" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+        </li>
+        {{ end }}
+
+        {{/* Search */}}
+        {{ if $show_search }}
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="search" aria-label="Search">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+  </div>
+</nav>
+</header>
+
+{{/* Toast notification for copy feedback */}}
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+  <div id="copy-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Copied</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" id="copy-toast-body">
+      Copied to clipboard
+    </div>
+  </div>
+</div>
+
+{{ end }}
+
+{{/* Include custom CSS and JavaScript */}}
+{{ $css := resources.Get "css/custom-navbar.css" }}
+{{ if $css }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ end }}
+
+<script src="{{ "js/copy-functionality.js" | relURL }}"></script>
+
+{{/* Inline JavaScript for copy functionality */}}
+<script>
+function copyToClipboard(text, itemName) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(function() {
+      showCopyToast(itemName, text);
+    }).catch(function(err) {
+      console.error('Failed to copy: ', err);
+      fallbackCopyTextToClipboard(text, itemName);
+    });
+  } else {
+    fallbackCopyTextToClipboard(text, itemName);
+  }
+}
+
+function fallbackCopyTextToClipboard(text, itemName) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+  textArea.style.opacity = "0";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    if (successful) {
+      showCopyToast(itemName, text);
+    } else {
+      console.error('Fallback: Could not copy text');
+    }
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+
+  document.body.removeChild(textArea);
+}
+
+function showCopyToast(itemName, text) {
+  var toastBody = document.getElementById('copy-toast-body');
+  if (toastBody) {
+    toastBody.innerHTML = '<strong>' + itemName + '</strong><br><small>' + text + '</small><br>Copied to clipboard';
+    
+    var toastElement = document.getElementById('copy-toast');
+    if (toastElement) {
+      // Check if Bootstrap is available
+      if (typeof bootstrap !== 'undefined' && bootstrap.Toast) {
+        var toast = new bootstrap.Toast(toastElement, { delay: 3000 });
+        toast.show();
+      } else {
+        // Fallback: simple show/hide
+        toastElement.style.display = 'block';
+        toastElement.classList.add('show');
+        setTimeout(function() {
+          toastElement.style.display = 'none';
+          toastElement.classList.remove('show');
+        }, 3000);
+      }
+    }
+  }
+}
+</script>
+
+<style>
+.dropdown-menu {
+  min-width: 200px;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.copy-item {
+  cursor: pointer;
+  position: relative;
+}
+
+.copy-item:hover {
+  background-color: #e3f2fd !important;
+  color: #1976d2 !important;
+}
+
+
+
+.toast {
+  min-width: 280px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+}
+
+.toast-header {
+  background-color: #28a745;
+  color: white;
+}
+
+.toast-header .btn-close {
+  filter: invert(1);
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+</style>
