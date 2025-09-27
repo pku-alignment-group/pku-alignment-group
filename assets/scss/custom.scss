@@ -1,0 +1,231 @@
+/* 增大publication列表中的图片，基于实际HTML结构 */
+
+/* 确保页面整体居中 */
+body {
+  margin: 0 auto !important;
+}
+
+.main-content,
+.page-content {
+  margin: 0 auto !important;
+  text-align: left !important; /* 保持文字左对齐 */
+}
+
+/* 0. 扩大publication页面的主容器宽度 */
+.page-wrapper,
+.container-fluid {
+  max-width: 1400px !important; /* 从默认1200px扩大到1400px */
+  margin: 0 auto !important;    /* 保持居中 */
+}
+
+/* 扩大publication列表的容器 */
+.section-publications,
+.page-body,
+main.page-body {
+  max-width: 1300px !important;
+  width: 100% !important;
+  margin: 0 auto !important;    /* 保持居中 */
+  padding: 0 20px !important;
+}
+
+/* 扩大中间内容区域 */
+.container,
+.container-xl {
+  max-width: 1300px !important;
+  margin: 0 auto !important;    /* 保持居中 */
+}
+
+/* 确保publication页面居中 */
+.publications-page,
+.page[data-wc-page-id*="publication"] {
+  max-width: 1300px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+
+/* 通用居中样式 */
+.row {
+  margin: 0 auto !important;
+}
+
+/* 1. 针对实际的media structure */
+.media.stream-item.view-compact {
+  display: flex !important;
+  align-items: flex-start !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* 2. 保持原来的layout，只是把图片放大 */
+.view-compact img[src*="featured"] {
+  /* 保持原来的布局比例，只是从150px改为300px */
+  width: 300px !important;   
+  height: auto !important;
+  min-width: 300px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  
+  /* 图片清晰度优化 */
+  image-rendering: auto !important;
+  -ms-interpolation-mode: bicubic !important;
+  
+  /* 硬件加速优化 */
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden !important;
+  
+  /* 移除模糊滤镜 */
+  filter: none !important;
+  
+  /* 确保高质量缩放 */
+  max-width: none !important;
+  flex-shrink: 0 !important;
+}
+
+/* 3. 调整媒体布局 */
+.view-compact .media-body {
+  padding-right: 30px !important; /* 增加间距 */
+  padding-left: 20px !important;  /* 左侧也增加间距 */
+  flex: 1 !important;
+  min-width: 0 !important; /* 防止flex项目溢出 */
+}
+
+/* 4. 确保图片链接容器也相应调整 */
+.view-compact a[href*="featured"] img,
+.view-compact a[target="_blank"] img {
+  width: 300px !important;  /* 更新到新尺寸 */
+  height: auto !important;
+}
+
+/* 5. 扩大每个publication项目的间距 */
+.view-compact .media.stream-item {
+  margin-bottom: 40px !important; /* 增加项目间距 */
+  padding: 20px !important;        /* 增加内边距 */
+  border-radius: 12px !important;
+  background: #fafafa !important;  /* 轻微背景色区分 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; /* 轻微阴影 */
+  transition: box-shadow 0.2s ease !important;
+}
+
+.view-compact .media.stream-item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important; /* 悬停时加深阴影 */
+}
+
+/* 确保首页的Latest Preprints区块也使用相同样式 */
+.home .view-compact .media.stream-item,
+section .view-compact .media.stream-item {
+  margin-bottom: 40px !important;
+  padding: 20px !important;
+  border-radius: 12px !important;
+  background: #fafafa !important;
+}
+
+/* 6. 响应式设计 */
+@media (max-width: 1200px) {
+  .page-wrapper,
+  .container-fluid,
+  .container,
+  .container-xl {
+    max-width: 100% !important;
+    margin: 0 auto !important;  /* 保持居中 */
+    padding: 0 15px !important;
+  }
+  
+  .section-publications,
+  .page-body,
+  main.page-body {
+    margin: 0 auto !important;  /* 保持居中 */
+  }
+}
+
+@media (max-width: 768px) {
+  .view-compact img[src*="featured"] {
+    width: 250px !important;  /* 移动端合理尺寸 */
+    height: auto !important;
+    min-width: 250px !important;
+  }
+  
+  .view-compact a[href*="featured"] img,
+  .view-compact a[target="_blank"] img {
+    width: 250px !important;
+    height: auto !important;
+  }
+  
+  .view-compact .media-body {
+    padding-right: 15px !important;
+    padding-left: 10px !important;
+  }
+  
+  .view-compact .media.stream-item {
+    margin-bottom: 25px !important;
+    padding: 15px !important;
+  }
+}
+
+/* 7. 高分辨率屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .view-compact img[src*="featured"] {
+    /* 高DPI屏幕上确保图片清晰 */
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: -moz-crisp-edges !important;
+    image-rendering: crisp-edges !important;
+    transform: scale(1) translate3d(0, 0, 0) !important;
+  }
+}
+
+/* 8. 额外的图片清晰度优化 */
+.view-compact img {
+  /* 确保所有图片都获得最佳渲染 */
+  -webkit-backface-visibility: hidden !important;
+  -moz-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  /* 移除任何可能的模糊效果 */
+  -webkit-filter: none !important;
+  filter: none !important;
+  /* 确保图片边缘清晰 */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* 9. Publication页面搜索和筛选器样式 */
+.publication-filters {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px auto;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.publication-filters .form-control {
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.publication-filters .form-control:focus {
+  border-color: #007bff !important;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.15) !important;
+  transform: translateY(-2px);
+}
+
+.publication-filters #search {
+  background: white;
+  border: 3px solid #e9ecef;
+  transition: all 0.4s ease;
+}
+
+.publication-filters #search:focus {
+  border-color: #007bff !important;
+  box-shadow: 0 8px 30px rgba(0,123,255,0.2) !important;
+  transform: translateY(-3px);
+}
+
+/* Publication项目的fade效果 */
+.isotope-item {
+  transition: all 0.4s ease;
+}
+
+.isotope-item[style*="display: none"] {
+  opacity: 0;
+  transform: scale(0.95);
+}

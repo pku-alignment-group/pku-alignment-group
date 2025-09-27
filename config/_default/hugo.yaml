@@ -37,9 +37,17 @@ outputs:
   home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
   section: [HTML, RSS]
 imaging:
-  resampleFilter: lanczos
-  quality: 75
+  resampleFilter: lanczos  # 保持高质量重采样
+  quality: 95              # 提高图片质量从75到95
   anchor: smart
+  bgColor: '#ffffff'       # 设置背景色
+  hint: photo              # 优化照片类型图片
+  # 启用高质量图片处理
+  exif:
+    includeFields: ""
+    excludeFields: ""
+    disableDate: false
+    disableLatLong: false
 timeout: 600000
 taxonomies:
   tag: tags
