@@ -1,5 +1,5 @@
 ---
-title: "SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Safe Reinforcement Learning"
+title: "SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Constrained Learning"
 
 # External link - clicking title will redirect to this URL
 external_link: "https://arxiv.org/abs/2503.03480"
@@ -30,8 +30,8 @@ doi: ""
 publication_types: ["article"]
 
 # Publication name
-publication: "Arxiv 2025"
-publication_short: "Arxiv"
+publication: "NeurIPS 2025 Spotlight"
+publication_short: "NeurIPS"
 
 abstract: "SafeVLA explores safety alignment of Vision-Language-Action models through safe reinforcement learning approaches."
 
