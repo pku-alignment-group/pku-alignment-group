@@ -22,3 +22,31 @@ main:
   - name: Contact
     url: contact
     weight: 60
+  - name: More Platforms
+    identifier: more-platforms
+    url: '#'
+    weight: 70
+  - name: 知乎
+    url: 'https://www.zhihu.com/people/58-18-2-26-61'
+    weight: 71
+    parent: more-platforms
+  - name: Bilibili
+    url: 'https://space.bilibili.com/3493095748405551?spm_id_from=333.337.search-card.all.click'
+    weight: 72
+    parent: more-platforms
+  - name: Email
+    url: '#'
+    weight: 73
+    parent: more-platforms
+    params:
+      copyText: 'pku.alignment@gmail.com'
+  - name: 小红书
+    url: '#'
+    weight: 74
+    parent: more-platforms
+    params:
+      copyText: '94133423595'
+  - name: PAIR-Lab
+    url: 'https://pair-lab.ai/'
+    weight: 75
+    parent: more-platforms
