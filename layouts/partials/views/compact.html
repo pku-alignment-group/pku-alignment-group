@@ -1,0 +1,299 @@
+{{ $item := .item }}
+
+{{/* Dynamic view adjusts to content type. */}}
+{{ $show_authors_only := false }}{{/* Show authors only or full metadata? */}}
+{{ $link := $item.RelPermalink }}
+{{ $target := "" }}
+{{ if $item.Params.external_link }}
+  {{ $link = $item.Params.external_link }}
+  {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+{{ end }}
+{{ if eq $item.Type "event" }}
+  {{ $show_authors_only = true }}
+{{ else if eq $item.Type "publication" }}
+  {{ $show_authors_only = true }}
+{{ else if eq $item.Type "project" }}
+  {{ $show_authors_only = true }}
+{{ end }}
+
+{{ $has_attachments := partial "functions/has_attachments" $item }}
+
+{{/* Get summary. */}}
+{{ $summary := "" }}
+{{ if $item.Params.summary }}
+  {{ $summary = $item.Params.summary | markdownify | emojify }}
+{{ else if $item.Params.abstract }}
+  {{ $summary = $item.Params.abstract | markdownify | emojify | truncate (site.Params.abstract_length | default 135) }}
+{{ else if $item.Summary }}
+  {{ $summary = $item.Summary }}
+{{ end }}
+
+<div class="media stream-item view-compact d-flex">
+  <!-- 1. 图片放在左边，在图片容器内居中 -->
+  <div class="mr-4 flex-shrink-0">
+    {{ $resource := partial "blox-core/functions/get_featured_image.html" $item }}
+    {{ with $resource }}
+      {{/* 使用原始图片，添加悬停放大功能 */}}
+      <div class="image-container position-relative">
+        <img src="{{ $resource.RelPermalink }}" 
+             class="publication-image img-fluid" 
+             style="max-width: 300px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+             alt="{{ $item.Title }}" 
+             loading="lazy"
+             onclick="showImageModal(this)">
+      </div>
+    {{end}}
+  </div>
+  
+  <!-- 文字内容在右边，垂直居中对齐 -->
+  <div class="media-body">
+
+    <div class="article-title mb-1 mt-0">
+      <a href="{{$link}}" {{ $target | safeHTMLAttr }} class="text-decoration-none">
+        {{ $item.Title }}
+      </a>
+    </div>
+
+    <!-- 3. 作者信息，带链接和notes，支持折叠 -->
+    {{ if and $show_authors_only $item.Params.authors }}
+    <div class="authors-section mb-1">
+      <small class="text-muted">
+        {{/* 使用Hugo原生的作者显示逻辑，类似page_metadata_authors.html */}}
+        {{- $taxonomy := "authors" }}
+        {{ if $item.Param $taxonomy }}
+          {{ $authors := $item.GetTerms $taxonomy }}
+          {{ $authorCount := len $authors }}
+          
+          {{/* 判断是否需要折叠 */}}
+          {{ if gt $authorCount 12 }}
+            {{/* 超过12个作者，显示前7个 */}}
+            {{ range first 7 $authors }}
+              {{ $index := .Ordinal }}
+              {{- if gt $index 0 }}, {{ end -}}
+              <span class="author-name">
+                {{/* 显示作者链接 - 只有配置了外部主页的才可点击 */}}
+                {{ $authorName := .LinkTitle }}
+                {{ $externalLink := index site.Params.author_homepages $authorName }}
+                {{- if $externalLink -}}
+                  <a href="{{$externalLink}}" class="author-link" target="_blank" rel="noopener">{{$authorName}}</a>
+                {{- else -}}
+                  <span class="author-name-plain">{{ $authorName }}</span>
+                {{- end -}}
+                
+                {{/* 显示author_notes */}}
+                {{- if isset $item.Params "author_notes" -}}
+                  {{- with (index $item.Params.author_notes $index) -}}
+                    {{- if ne . "" -}}
+                      <i class="fas fa-info-circle ml-1 text-info author-tooltip" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-html="true"
+                         title="{{.}}"></i>
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+              </span>
+            {{ end }}
+            
+            {{/* 中间折叠的作者 */}}
+            <span class="author-collapse-container">
+              <span class="show-more-btn">
+                , <a href="javascript:void(0)" class="author-link text-primary" onclick="toggleAuthors(this.parentElement.parentElement, event); return false;">... show more ({{ sub $authorCount 12 }} authors)</a>
+              </span>
+              <span class="collapsed-authors" style="display: none;">
+                {{ range (after 7 (first (sub $authorCount 5) $authors)) }}
+                  {{ $index := .Ordinal }}
+                  , <span class="author-name">
+                    {{ $authorName := .LinkTitle }}
+                    {{ $externalLink := index site.Params.author_homepages $authorName }}
+                    {{- if $externalLink -}}
+                      <a href="{{$externalLink}}" class="author-link" target="_blank" rel="noopener">{{$authorName}}</a>
+                    {{- else -}}
+                      <span class="author-name-plain">{{ $authorName }}</span>
+                    {{- end -}}
+                    
+                    {{- if isset $item.Params "author_notes" -}}
+                      {{- with (index $item.Params.author_notes $index) -}}
+                        {{- if ne . "" -}}
+                          <i class="fas fa-info-circle ml-1 text-info author-tooltip" 
+                             data-toggle="tooltip" 
+                             data-placement="top" 
+                             data-html="true"
+                             title="{{.}}"></i>
+                        {{- end -}}
+                      {{- end -}}
+                    {{- end -}}
+                  </span>
+                {{ end }}
+              </span>
+              <span class="show-less-btn" style="display: none;">
+                , <a href="javascript:void(0)" class="author-link text-primary" onclick="toggleAuthors(this.parentElement.parentElement, event); return false;">show less</a>
+              </span>
+            </span>
+            
+            {{/* 显示最后5个作者 */}}
+            {{ range last 5 $authors }}
+              {{ $index := .Ordinal }}
+              , <span class="author-name">
+                {{ $authorName := .LinkTitle }}
+                {{ $externalLink := index site.Params.author_homepages $authorName }}
+                {{- if $externalLink -}}
+                  <a href="{{$externalLink}}" class="author-link" target="_blank" rel="noopener">{{$authorName}}</a>
+                {{- else -}}
+                  <span class="author-name-plain">{{ $authorName }}</span>
+                {{- end -}}
+                
+                {{- if isset $item.Params "author_notes" -}}
+                  {{- with (index $item.Params.author_notes $index) -}}
+                    {{- if ne . "" -}}
+                      <i class="fas fa-info-circle ml-1 text-info author-tooltip" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-html="true"
+                         title="{{.}}"></i>
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+              </span>
+            {{ end }}
+            
+          {{ else }}
+            {{/* 12个或以下作者，正常显示所有 */}}
+            {{ range $index, $value := $authors }}
+              {{- if gt $index 0 }}, {{ end -}}
+              <span class="author-name">
+                {{ $authorName := $value.LinkTitle }}
+                {{ $externalLink := index site.Params.author_homepages $authorName }}
+                {{- if $externalLink -}}
+                  <a href="{{$externalLink}}" class="author-link" target="_blank" rel="noopener">{{$authorName}}</a>
+                {{- else -}}
+                  <span class="author-name-plain">{{ $authorName }}</span>
+                {{- end -}}
+                
+                {{- if isset $item.Params "author_notes" -}}
+                  {{- with (index $item.Params.author_notes $index) -}}
+                    {{- if ne . "" -}}
+                      <i class="fas fa-info-circle ml-1 text-info author-tooltip" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-html="true"
+                         title="{{.}}"></i>
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+              </span>
+            {{ end }}
+          {{ end }}
+          
+        {{ else }}
+          {{/* 备用方案：如果没有作者taxonomy，直接显示字符串 */}}
+          {{ $authorCount := len $item.Params.authors }}
+          {{ if gt $authorCount 12 }}
+            {{/* 超过12个作者，显示前7个 */}}
+            {{ range first 7 $item.Params.authors }}
+              {{ if ne . (index $item.Params.authors 0) }}, {{ end }}
+              <span class="author-name">
+                {{ . }}
+                {{- if isset $item.Params "author_notes" -}}
+                  {{- with (index $item.Params.author_notes (sub (len (first (add . 1) $item.Params.authors)) 1)) -}}
+                    {{- if ne . "" -}}
+                      <i class="fas fa-info-circle ml-1 text-info author-tooltip" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-html="true"
+                         title="{{.}}"></i>
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+              </span>
+            {{ end }}
+            
+            <span class="author-collapse-container">
+              <span class="show-more-btn">
+                , <a href="javascript:void(0)" class="author-link text-primary" onclick="toggleAuthors(this.parentElement.parentElement, event); return false;">... show more ({{ sub $authorCount 12 }} authors)</a>
+              </span>
+              <span class="collapsed-authors" style="display: none;">
+                {{ range (after 7 (first (sub $authorCount 5) $item.Params.authors)) }}
+                  , <span class="author-name">{{ . }}</span>
+                {{ end }}
+              </span>
+              <span class="show-less-btn" style="display: none;">
+                , <a href="javascript:void(0)" class="author-link text-primary" onclick="toggleAuthors(this.parentElement.parentElement, event); return false;">show less</a>
+              </span>
+            </span>
+            
+            {{/* 显示最后5个作者 */}}
+            {{ range last 5 $item.Params.authors }}
+              , <span class="author-name">{{ . }}</span>
+            {{ end }}
+            
+          {{ else }}
+            {{/* 12个或以下作者，正常显示 */}}
+            {{ range $index, $author := $item.Params.authors }}
+              {{ if $index }}, {{ end }}
+              <span class="author-name">
+                {{ $author }}
+                {{- if isset $item.Params "author_notes" -}}
+                  {{- with (index $item.Params.author_notes $index) -}}
+                    {{- if ne . "" -}}
+                      <i class="fas fa-info-circle ml-1 text-info author-tooltip" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-html="true"
+                         title="{{.}}"></i>
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+              </span>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </small>
+    </div>
+    {{ end }}
+
+    <!-- 4. 会议/期刊信息 -->
+    {{ if $item.Params.publication }}
+    <div class="venue-section" style="margin-bottom: 0px;">
+      <small class="text-success">
+        <i class="fas fa-check-circle mr-1"></i>
+        <strong>{{ $item.Params.publication }}</strong>
+      </small>
+    </div>
+    {{ end }}
+
+    <!-- 5. 论文Topics -->
+    {{ if $item.Params.tags }}
+    <div class="topics-section" style="margin: 0;">
+      <small>
+        {{ range $index, $tag := (first 4 $item.Params.tags) }}
+          <span class="topic-tag">{{ $tag }}</span>
+        {{ end }}
+        {{ if gt (len $item.Params.tags) 4 }}
+          <span class="topic-tag" style="background-color: #e9ecef; color: #adb5bd;">+{{ sub (len $item.Params.tags) 4 }}</span>
+        {{ end }}
+      </small>
+    </div>
+    {{ end }}
+
+    <!-- 日期信息 -->
+    {{ if eq $item.Type "event" }}
+    <div style="margin-bottom: 0px;">
+      <small class="text-muted">
+        {{ partial "functions/get_event_dates" $item }}
+        {{ with $item.Params.location }}
+        <span class="middot-divider"></span>
+        <span>{{ . }}</span>
+        {{ end }}
+      </small>
+    </div>
+    {{ end }}
+
+    {{ if $has_attachments }}
+    <div class="btn-links" style="margin-top: 0px;">
+      {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+    </div>
+    {{ end }}
+
+  </div>
+</div>

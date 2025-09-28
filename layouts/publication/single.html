@@ -1,0 +1,32 @@
+{{- /* Custom publication single page template - redirects to external link */ -}}
+{{- if .Params.external_link -}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Title }} - 正在跳转...</title>
+    <meta http-equiv="refresh" content="0; url={{ .Params.external_link }}">
+    <script>
+        window.location.href = "{{ .Params.external_link }}";
+    </script>
+</head>
+<body>
+    <p>正在跳转到 <a href="{{ .Params.external_link }}">{{ .Title }}</a>...</p>
+    <p>如果没有自动跳转，请点击上方链接。</p>
+</body>
+</html>
+{{- else -}}
+{{- /* If no external_link, show message to go back to list */ -}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Title }}</title>
+</head>
+<body>
+    <h1>{{ .Title }}</h1>
+    <p>此内容仅在列表中显示。</p>
+    <p><a href="/publication/">← 返回论文列表</a></p>
+</body>
+</html>
+{{- end -}}

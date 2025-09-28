@@ -1,0 +1,33 @@
+/* Custom styles for publication list */
+
+/* Force disable all publication title links that don't have external_link */
+.view-citation .article-title a[href*="/publication/"]:not([href*="http"]) {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+.view-citation .article-title a[href*="/publication/"]:not([href*="http"]):hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Style for clickable external links */
+.view-citation .article-title a[href*="http"] {
+  color: #007bff !important;
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+.view-citation .article-title a[href*="http"]:hover {
+  color: #0056b3 !important;
+  text-decoration: underline !important;
+}
+
+/* Fallback: if no external_link, make title look like normal text */
+.unclickable-title {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: default !important;
+}

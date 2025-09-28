@@ -116,3 +116,18 @@ extensions:
 publications:
   date_format: January 2006
   citation_style: apa
+
+# 作者个人主页链接配置
+author_homepages:
+  "Jiaming Ji": "https://jijiaming.com/"
+  "Yaodong Yang": "https://www.yangyaodong.com/"
+  "Boyuan Chen": "https://cby-pku.github.io/"
+  "Jiayi Zhou": "https://gaiejj.github.io/"
+  # "Borong Zhang": "https://borong.me"
+  # "Hantao Lou": "https://scholar.google.com/citations?user=example2"
+  # "Josef Dai": "https://scholar.google.com/citations?user=example3"
+  # "Juntao Dai": "https://scholar.google.com/citations?user=example4"
+  # "Tianyi Qiu": "https://scholar.google.com/citations?user=example5"
+  # "Yuhao Zhang": "https://scholar.google.com/citations?user=example6"
+  # "Donghai Hong": "https://scholar.google.com/citations?user=example7"
+  # "Xuehai Pan": "https://scholar.google.com/citations?user=example8"
