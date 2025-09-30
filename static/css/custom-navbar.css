@@ -125,38 +125,3 @@
   }
 }
 
-/* Dark mode support */
-[data-theme="dark"] .dropdown-menu {
-  background-color: #343a40;
-  border-color: #495057;
-}
-
-[data-theme="dark"] .dropdown-item {
-  color: #f8f9fa;
-}
-
-[data-theme="dark"] .dropdown-item:hover,
-[data-theme="dark"] .dropdown-item:focus {
-  background-color: #495057;
-  color: white;
-}
-
-[data-theme="dark"] .copy-item:hover {
-  background-color: #1e3a5f !important;
-  color: #64b5f6 !important;
-}
-
-[data-theme="dark"] .toast {
-  background-color: #343a40;
-  border-color: #495057;
-  color: #f8f9fa;
-}
-
-[data-theme="dark"] .toast-body strong {
-  color: #f8f9fa;
-}
-
-[data-theme="dark"] .toast-body small {
-  background-color: #495057;
-  color: #ced4da;
-}
