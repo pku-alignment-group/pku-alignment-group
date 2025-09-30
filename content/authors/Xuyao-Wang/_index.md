@@ -1,50 +1,38 @@
 ---
 # Display name
-title: Juntao Dai
+title: Xuyao Wang
 
 # Full name (for SEO)
-first_name: Juntao
-last_name: Dai
+first_name: Xuyao
+last_name: Wang
 
 # Username (this should match the folder name)
 authors:
-  - Juntao-Dai
+  - Xuyao-Wang
 
 # Is this the primary user of the site?
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://scholar.google.com/citations?user=eRmX5AsAAAAJ&hl=zh-CN'
+external_link: 'https://openreview.net/profile?id=%7EXuyao_Wang1'
 
 # Role/position - 支持多个角色  
-role: Ph.D Student
+role: Research Assistants
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
+  - name: Peking University
     url: ''
 
 # Lab duration (实验室时间)
-lab_start_date: '2020-03-15'
+lab_start_date: '2024-03-23'
 lab_end_date: '2023-12-31'
 
 
 
 interests:
   - Reinforcement Learning
-  - Value Alignment
-
-# education:
-#   courses:
-#     - course: PhD in Artificial Intelligence
-#       institution: Stanford University
-#       year: 2012
-#     - course: MEng in Artificial Intelligence
-#       institution: Massachusetts Institute of Technology
-#       year: 2009
-#     - course: BSc in Artificial Intelligence
-#       institution: Massachusetts Institute of Technology
-#       year: 2008
+  - AI Infra
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -53,16 +41,13 @@ interests:
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:test@example.org'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
+    link: 'mailto:wxy835283116@gmail.com'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: https://openreview.net/profile?id=%7EXuyao_Wang1
   - icon: github
     icon_pack: fab
-    link: https://github.com/gcushen
+    link: https://github.com/XuyaoWang
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -70,7 +55,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'test@example.org'
+email: 'wxy835283116@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

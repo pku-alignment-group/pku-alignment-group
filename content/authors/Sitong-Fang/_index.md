@@ -1,38 +1,38 @@
 ---
 # Display name
-title: Juntao Dai
+title: Sitong Fang
 
 # Full name (for SEO)
-first_name: Juntao
-last_name: Dai
+first_name: Sitong
+last_name: Fang
 
 # Username (this should match the folder name)
 authors:
-  - Juntao-Dai
+  - Sitong-Fang
 
 # Is this the primary user of the site?
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://scholar.google.com/citations?user=eRmX5AsAAAAJ&hl=zh-CN'
+external_link: 'https://scholar.google.com/citations?user=86JM-y0AAAAJ'
 
 # Role/position - 支持多个角色  
-role: Ph.D Student
+role: Undergraduate Student
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
+  - name: Peking University
     url: ''
 
 # Lab duration (实验室时间)
-lab_start_date: '2020-03-15'
+lab_start_date: '2024-11-26'
 lab_end_date: '2023-12-31'
 
 
 
 interests:
+  - AI Deception
   - Reinforcement Learning
-  - Value Alignment
 
 # education:
 #   courses:
@@ -53,16 +53,13 @@ interests:
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:test@example.org'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
+    link: 'mailto:sitongfang1@gmail.com'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: https://scholar.google.com/citations?user=86JM-y0AAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/gcushen
+    link: https://github.com/Lavezlyn
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -70,7 +67,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'test@example.org'
+email: 'sitongfang1@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
