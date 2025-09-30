@@ -96,27 +96,20 @@ main.page-body {
   height: auto !important;
 }
 
-/* 5. 扩大每个publication项目的间距 */
+/* 5. 紧凑的publication项目间距 - 移除阴影和悬停效果 */
 .view-compact .media.stream-item {
-  margin-bottom: 40px !important; /* 增加项目间距 */
-  padding: 20px !important;        /* 增加内边距 */
-  border-radius: 12px !important;
-  background: #fafafa !important;  /* 轻微背景色区分 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important; /* 轻微阴影 */
-  transition: box-shadow 0.2s ease !important;
+  margin-bottom: 8px !important; /* 进一步减少项目间距到一半 */
+  padding: 12px !important;        /* 减少内边距 */
+  background: white !important;  /* 纯白背景 */
+  /* 移除圆角、阴影和transition效果 */
 }
 
-.view-compact .media.stream-item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important; /* 悬停时加深阴影 */
-}
-
-/* 确保首页的Latest Preprints区块也使用相同样式 */
+/* 确保首页的Latest Preprints区块也使用相同紧凑样式 */
 .home .view-compact .media.stream-item,
 section .view-compact .media.stream-item {
-  margin-bottom: 40px !important;
-  padding: 20px !important;
-  border-radius: 12px !important;
-  background: #fafafa !important;
+  margin-bottom: 8px !important;
+  padding: 12px !important;
+  background: white !important;
 }
 
 /* 6. 响应式设计 */
