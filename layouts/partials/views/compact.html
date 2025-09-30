@@ -30,14 +30,14 @@
 
 <div class="media stream-item view-compact d-flex">
   <!-- 1. 图片放在左边，在图片容器内居中 -->
-  <div class="mr-4 flex-shrink-0">
+  <div class="0.5mr-1 flex-shrink-0">
     {{ $resource := partial "blox-core/functions/get_featured_image.html" $item }}
     {{ with $resource }}
       {{/* 使用原始图片，添加悬停放大功能 */}}
       <div class="image-container position-relative">
         <img src="{{ $resource.RelPermalink }}" 
              class="publication-image img-fluid" 
-             style="max-width: 300px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+             style="max-width: 300px; height: auto; cursor: pointer;"
              alt="{{ $item.Title }}" 
              loading="lazy"
              onclick="showImageModal(this)">
@@ -48,7 +48,7 @@
   <!-- 文字内容在右边，垂直居中对齐 -->
   <div class="media-body">
 
-    <div class="article-title mb-1 mt-0">
+    <div class="article-title 0.5mb-1 mt-0">
       <a href="{{$link}}" {{ $target | safeHTMLAttr }} class="text-decoration-none">
         {{ $item.Title }}
       </a>
@@ -254,7 +254,7 @@
 
     <!-- 4. 会议/期刊信息 -->
     {{ if $item.Params.publication }}
-    <div class="venue-section" style="margin-bottom: 0px;">
+    <div class="venue-section 0.7mb-1">
       <small class="text-success">
         <i class="fas fa-check-circle mr-1"></i>
         <strong>{{ $item.Params.publication }}</strong>
@@ -264,13 +264,13 @@
 
     <!-- 5. 论文Topics -->
     {{ if $item.Params.tags }}
-    <div class="topics-section" style="margin: 0;">
+    <div class="topics-section mb-1">
       <small>
         {{ range $index, $tag := (first 4 $item.Params.tags) }}
-          <span class="topic-tag">{{ $tag }}</span>
+          <span class="topic-tag">{{ $tag }}{{ if ne $index (sub (len (first 4 $item.Params.tags)) 1) }}, {{ end }}</span>
         {{ end }}
         {{ if gt (len $item.Params.tags) 4 }}
-          <span class="topic-tag" style="background-color: #e9ecef; color: #adb5bd;">+{{ sub (len $item.Params.tags) 4 }}</span>
+          <span class="topic-tag">, +{{ sub (len $item.Params.tags) 4 }}</span>
         {{ end }}
       </small>
     </div>
@@ -278,7 +278,7 @@
 
     <!-- 日期信息 -->
     {{ if eq $item.Type "event" }}
-    <div style="margin-bottom: 0px;">
+    <div class="0.5mb-1">
       <small class="text-muted">
         {{ partial "functions/get_event_dates" $item }}
         {{ with $item.Params.location }}
@@ -290,7 +290,7 @@
     {{ end }}
 
     {{ if $has_attachments }}
-    <div class="btn-links" style="margin-top: 0px;">
+    <div class="btn-links">
       {{ partial "page_links" (dict "page" $item "is_list" 1) }}
     </div>
     {{ end }}

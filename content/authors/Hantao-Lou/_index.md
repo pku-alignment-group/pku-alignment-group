@@ -1,39 +1,39 @@
 ---
 # Display name
-title: Juntao Dai
+title: Hantao Lou
 
 # Full name (for SEO)
-first_name: Juntao
-last_name: Dai
+first_name: Hantao
+last_name: Lou
 
 # Username (this should match the folder name)
 authors:
-  - Juntao-Dai
+  - Hantao-Lou
 
 # Is this the primary user of the site?
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://scholar.google.com/citations?user=eRmX5AsAAAAJ&hl=zh-CN'
+external_link: 'https://htlou.github.io'
 
 # Role/position - 支持多个角色  
-role: Ph.D Student
+role: Research Assistants
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
+  - name: Peking University
     url: ''
 
 # Lab duration (实验室时间)
-lab_start_date: '2020-03-15'
+lab_start_date: '2023-07-15'
 lab_end_date: '2023-12-31'
 
 
 
 interests:
+  - Formal Verification
+  - Mechanistic Interpretability
   - Reinforcement Learning
-  - Value Alignment
-
 # education:
 #   courses:
 #     - course: PhD in Artificial Intelligence
@@ -53,16 +53,13 @@ interests:
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:test@example.org'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
+    link: 'mailto:hantaolou.htlou@gmail.com'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: https://scholar.google.com/citations?user=h1s9iX4AAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/gcushen
+    link: https://github.com/htlou
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -70,7 +67,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'test@example.org'
+email: 'hantaolou.htlou@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
