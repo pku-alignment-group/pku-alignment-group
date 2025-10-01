@@ -40,6 +40,9 @@
     {{ if $query }}
       {{ if $isLeader }}
         {{/* 核心成员 - 左图右文详细布局 */}}
+        <div class="role-group">
+          <h2 class="role-group-title">Principal Investigator</h2>
+        </div>
         <div class="faculty-section">
           {{ range $query }}
             {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
@@ -141,72 +144,95 @@
           {{ end }}
         </div>
       {{ else }}
-        {{/* 团队成员 - 网格布局 */}}
-        <div class="members-grid">
-          {{ range $query }}
-            {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
-            {{ $link := "" }}
-            {{ $linkTarget := "" }}
-            {{ $linkRel := "" }}
-            {{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
-              {{ if .Params.external_link }}
-                {{ $link = .Params.external_link }}
-                {{ $linkTarget = " target=\"_blank\"" }}
-                {{ $linkRel = " rel=\"noopener noreferrer\"" }}
-              {{ else }}
-                {{ $link = .RelPermalink }}
-              {{ end }}
-            {{ end }}
-
-            {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}} class="member">{{end}}
-              {{/* 圆形头像 */}}
-              {{ $src := "" }}
-              {{ if site.Params.features.avatar.gravatar }}
-                {{ $src = printf "https://s.gravatar.com/avatar/%s?s=150" (md5 .Params.email) }}
-              {{ else if $avatar }}
-                {{ $avatar_image := $avatar.Fill "300x300 Center" }}
-                {{ $src = $avatar_image.RelPermalink }}
-              {{ end }}
-              
-              {{ if $src }}
-                <img src="{{ $src }}" alt="{{ .Title }}" class="member-img">
-              {{ else }}
-                <div class="member-img-placeholder">
-                  <span>{{ substr .Title 0 1 | upper }}</span>
-                </div>
-              {{ end }}
-
-              {{/* 成员信息 - 垂直居中布局 */}}
-              <div class="member-bio">
-                <div class="member-name">
-                  <b>{{ .Title }}</b>
-                  {{/* 支持多个roles - 同行显示 */}}
-                  {{ if .Params.roles }}
-                    {{ range $index, $role := .Params.roles }}
-                      {{ if $index }}, {{ end }}
-                      {{ if or (in $role "Ph.D") (in $role "PhD") }}(Ph.D Student){{ else if or (in $role "Master") (in $role "master") }}(Master Student){{ else if or (in $role "Postdoc") (in $role "postdoc") }}(Postdoc){{ else if or (in $role "Assistant") (in $role "Research Assistant") }}(Research Assistant){{ else }}({{ $role }}){{ end }}
-                    {{ end }}
-                  {{ else if .Params.role }}
-                    {{/* 向后兼容单个role - 同行显示 */}}
-                    {{ if or (in .Params.role "Ph.D") (in .Params.role "PhD") }}(Ph.D Student){{ else if or (in .Params.role "Master") (in .Params.role "master") }}(Master Student){{ else if or (in .Params.role "Postdoc") (in .Params.role "postdoc") }}(Postdoc){{ else if or (in .Params.role "Assistant") (in .Params.role "Research Assistant") }}(Research Assistant){{ else }}({{ .Params.role }}){{ end }}
-                  {{ end }}
-                </div>
-                
-                {{ if .Params.email }}
-                  <div class="member-email">{{ .Params.email | replaceRE "@" " [at] " | replaceRE "\\." " [dot] " }}</div>
-                {{ end }}
-                
-                {{ if and $show_interests .Params.interests }}
-                  <div class="member-tags">
-                    {{ range .Params.interests }}
-                      <div class="research-tag">{{ . }}</div>
-                    {{ end }}
-                  </div>
-                {{ end }}
-              </div>
-            {{if $link}}</a>{{end}}
+        {{/* 团队成员 - 按角色分组显示 */}}
+        
+        {{/* 按角色分组 */}}
+        {{ $phds := slice }}
+        {{ $masters := slice }}
+        {{ $undergrads := slice }}
+        {{ $interns := slice }}
+        {{ $others := slice }}
+        
+        {{ range $query }}
+          {{ $roleDisplay := "" }}
+          {{ if .Params.roles }}
+            {{ $roleDisplay = index .Params.roles 0 }}
+          {{ else if .Params.role }}
+            {{ $roleDisplay = .Params.role }}
           {{ end }}
-        </div>
+          
+          {{ if or (in $roleDisplay "Ph.D") (in $roleDisplay "PhD") }}
+            {{ $phds = $phds | append . }}
+          {{ else if or (in $roleDisplay "Master") (in $roleDisplay "master") }}
+            {{ $masters = $masters | append . }}
+          {{ else if or (in $roleDisplay "Undergraduate") (in $roleDisplay "undergraduate") }}
+            {{ $undergrads = $undergrads | append . }}
+          {{ else if or (in $roleDisplay "Intern") (in $roleDisplay "intern") }}
+            {{ $interns = $interns | append . }}
+          {{ else }}
+            {{ $others = $others | append . }}
+          {{ end }}
+        {{ end }}
+        
+        {{/* 渲染Ph.D学生 */}}
+        {{ if $phds }}
+          <div class="role-group">
+            <h2 class="role-group-title">Ph.D Students</h2>
+            <div class="students-section">
+              {{ range $phds }}
+                {{ partial "blocks/people-student-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        
+        {{/* 渲染硕士生 */}}
+        {{ if $masters }}
+          <div class="role-group">
+            <h2 class="role-group-title">Master Students</h2>
+            <div class="students-section">
+              {{ range $masters }}
+                {{ partial "blocks/people-student-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        
+        {{/* 渲染本科生 */}}
+        {{ if $undergrads }}
+          <div class="role-group">
+            <h2 class="role-group-title">Undergraduate Students</h2>
+            <div class="students-section">
+              {{ range $undergrads }}
+                {{ partial "blocks/people-student-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        
+        {{/* 渲染实习生 */}}
+        {{ if $interns }}
+          <div class="role-group">
+            <h2 class="role-group-title">Research Interns</h2>
+            <div class="students-section">
+              {{ range $interns }}
+                {{ partial "blocks/people-student-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+        
+        {{/* 渲染其他成员 */}}
+        {{ if $others }}
+          <div class="role-group">
+            <h2 class="role-group-title">Others</h2>
+            <div class="students-section">
+              {{ range $others }}
+                {{ partial "blocks/people-student-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}

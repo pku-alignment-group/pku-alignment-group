@@ -34,6 +34,9 @@ interests:
   - Reinforcement Learning
   - AI Alignment
 
+# Research mission (optional, max 20 words)
+research_mission: "Building safe and aligned AI systems through robust reinforcement learning."
+
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
