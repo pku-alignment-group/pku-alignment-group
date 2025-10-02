@@ -74,8 +74,8 @@ social:
 email: 'yaodong.yang@outlook.com'
 
 # Additional contact information for faculty layout
-office: 'Room 246 Gates Bldg'
-address: '353 Serra Mall, Gates Building, Stanford, CA, 94305-9020'
+office: 'West Ziyuan Building 2209A'
+address: 'https://www.yangyaodong.com'
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true

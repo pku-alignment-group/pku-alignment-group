@@ -1,23 +1,23 @@
 ---
 # Display name
-title: Hantao Lou
+title: Kaile Wang
 
 # Full name (for SEO)
-first_name: Hantao
-last_name: Lou
+first_name: Kaile
+last_name: Wang
 
 # Username (this should match the folder name)
 authors:
-  - Hantao-Lou
+  - Kaile-Wang
 
 # Is this the primary user of the site?
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://htlou.github.io'
+external_link: 'https://jijiaming.com'
 
 # Role/position - 支持多个角色  
-role: Undergraduate Student
+role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
@@ -25,29 +25,18 @@ organizations:
     url: ''
 
 # Lab duration (实验室时间)
-lab_start_date: '2023-07-15'
+lab_start_date: '2020-03-15'
 lab_end_date: '2023-12-31'
 
 
 
 interests:
-  - Formal Verification
-  - Mechanistic Interpretability
   - Reinforcement Learning
+  - Safety Alignment
+  - AI for Science
 
 # Research mission
 research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
-# education:
-#   courses:
-#     - course: PhD in Artificial Intelligence
-#       institution: Stanford University
-#       year: 2012
-#     - course: MEng in Artificial Intelligence
-#       institution: Massachusetts Institute of Technology
-#       year: 2009
-#     - course: BSc in Artificial Intelligence
-#       institution: Massachusetts Institute of Technology
-#       year: 2008
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -56,13 +45,13 @@ research_mission: "Exploring innovative approaches to advance AI research. Dedic
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:hantaolou.htlou@gmail.com'
+    link: 'mailto:jiamg.ji@gmail.com'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.com/citations?user=h1s9iX4AAAAJ
+    link: https://scholar.google.com/citations?user=aW8WbYYAAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/htlou
+    link: https://github.com/zmsn-2077
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -70,7 +59,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'hantaolou.htlou@gmail.com'
+email: 'jiamg.ji@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

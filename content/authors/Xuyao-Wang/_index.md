@@ -17,11 +17,11 @@ superuser: false
 external_link: 'https://openreview.net/profile?id=%7EXuyao_Wang1'
 
 # Role/position - 支持多个角色  
-role: Research Assistants
+role: Research Intern
 
 # Organizations/Affiliations
 organizations:
-  - name: Peking University
+  - name: Nankai University
     url: ''
 
 # Lab duration (实验室时间)
