@@ -35,6 +35,9 @@ interests:
   - Safety Alignment
   - AI for Science
 
+# Research mission
+research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
+
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the

@@ -34,6 +34,9 @@ interests:
   - AI Deception
   - Reinforcement Learning
 
+# Research mission
+research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
+
 # education:
 #   courses:
 #     - course: PhD in Artificial Intelligence

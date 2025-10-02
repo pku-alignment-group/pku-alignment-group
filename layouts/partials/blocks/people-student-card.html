@@ -1,0 +1,128 @@
+{{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+{{/* Get link to user's profile page or external link */}}
+{{ $link := "" }}
+{{ $linkTarget := "" }}
+{{ $linkRel := "" }}
+{{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
+  {{ if .Params.external_link }}
+    {{ $link = .Params.external_link }}
+    {{ $linkTarget = " target=\"_blank\"" }}
+    {{ $linkRel = " rel=\"noopener noreferrer\"" }}
+  {{ else }}
+    {{ $link = .RelPermalink }}
+  {{ end }}
+{{ end }}
+
+{{/* 确定角色类型和显示文本 */}}
+{{ $roleDisplay := "" }}
+{{ if .Params.roles }}
+  {{ $roleDisplay = index .Params.roles 0 }}
+{{ else if .Params.role }}
+  {{ $roleDisplay = .Params.role }}
+{{ end }}
+
+{{/* 计算加入时长 */}}
+{{ $duration := "" }}
+{{ if .Params.lab_start_date }}
+  {{ $startDate := time .Params.lab_start_date }}
+  {{ $endDate := now }}
+  {{ if .Params.lab_end_date }}
+    {{ $endDate = time .Params.lab_end_date }}
+  {{ end }}
+  {{/* 计算年份和月份差 */}}
+  {{ $startYear := $startDate.Year }}
+  {{ $startMonth := int $startDate.Month }}
+  {{ $endYear := $endDate.Year }}
+  {{ $endMonth := int $endDate.Month }}
+  {{ $totalMonths := sub (add (mul (sub $endYear $startYear) 12) $endMonth) $startMonth }}
+  {{ $years := div $totalMonths 12 }}
+  {{ $months := mod $totalMonths 12 }}
+  {{ if gt $years 0 }}
+    {{ if eq $years 1 }}
+      {{ $duration = "1 year" }}
+    {{ else }}
+      {{ $duration = printf "%d years" $years }}
+    {{ end }}
+    {{ if gt $months 0 }}
+      {{ if eq $months 1 }}
+        {{ $duration = printf "%s 1 month" $duration }}
+      {{ else }}
+        {{ $duration = printf "%s %d months" $duration $months }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ if eq $totalMonths 1 }}
+      {{ $duration = "1 month" }}
+    {{ else if gt $totalMonths 0 }}
+      {{ $duration = printf "%d months" $totalMonths }}
+    {{ else }}
+      {{ $duration = "Just joined" }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<div class="student-member">
+  {{/* 左侧头像 */}}
+  <div class="student-photo">
+    {{ $src := "" }}
+    {{ if site.Params.features.avatar.gravatar }}
+      {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 .Params.email) }}
+    {{ else if $avatar }}
+      {{ $avatar_image := $avatar.Fill "400x500 Center" }}
+      {{ $src = $avatar_image.RelPermalink }}
+    {{ end }}
+    
+    {{ if $src }}
+      {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>{{end}}
+        <img src="{{ $src }}" alt="{{ .Title }}" class="student-img">
+      {{if $link}}</a>{{end}}
+    {{ else }}
+      <div class="student-img-placeholder">
+        <span>{{ substr .Title 0 1 | upper }}</span>
+      </div>
+    {{ end }}
+  </div>
+
+  {{/* 中间信息 */}}
+  <div class="student-bio">
+    <div class="student-name">
+      {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>{{end}}
+        <b>{{ .Title }}</b>
+      {{if $link}}</a>{{end}}
+    </div>
+    
+    {{ if .Params.organizations }}
+      <div class="student-info-item">
+        <span class="info-label">Affiliation:</span> {{ (index .Params.organizations 0).name }}
+      </div>
+    {{ end }}
+    
+    {{ if $duration }}
+      <div class="student-info-item">
+        <span class="info-label">Duration:</span> {{ $duration }}
+      </div>
+    {{ end }}
+    
+    {{ if .Params.interests }}
+      <div class="student-info-item">
+        <span class="info-label">Research:</span> {{ delimit .Params.interests ", " }}
+      </div>
+    {{ end }}
+    
+    {{ if .Params.email }}
+      <div class="student-info-item">
+        <span class="info-label">Email:</span> {{ .Params.email }}
+      </div>
+    {{ end }}
+  </div>
+  
+  {{/* Mission 放在右侧 */}}
+  <div class="student-mission">
+    <span class="mission-label">Mission:</span>
+    {{ if .Params.research_mission }}
+      {{ .Params.research_mission }}
+    {{ else }}
+      Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field.
+    {{ end }}
+  </div>
+</div>
