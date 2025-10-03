@@ -14,21 +14,21 @@ authors:
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://jijiaming.com'
+external_link: 'https://scholar.google.com/citations?hl=zh-CN&user=hTNgG1YAAAAJ'
 
 # Role/position - 支持多个角色  
 role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
-  - name: Peking University
+  - name: 'Ph.D (2026), Peking University'
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 24
+rank: 5
 
 # Start Time (加入实验室的时间)
-lab_start_date: '2020-03-15'
+lab_start_date: '2023-09-01'
 lab_end_date: '2023-12-31'
 
 
@@ -36,7 +36,7 @@ lab_end_date: '2023-12-31'
 interests:
   - Reinforcement Learning
   - Safety Alignment
-  - AI for Science
+  - LLMs Theory
 
 # Research mission
 research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."

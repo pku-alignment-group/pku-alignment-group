@@ -21,7 +21,7 @@ role: Research Intern
 
 # Organizations/Affiliations
 organizations:
-  - name: Peking University
+  - name: University of Electronic Science and Technology of China
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)

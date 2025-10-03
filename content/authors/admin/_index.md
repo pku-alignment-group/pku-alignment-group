@@ -74,7 +74,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'yaodong.yang@outlook.com'
+email: 'yaodong.yang@pku.edu.cn'
 
 # Additional contact information for faculty layout
 office: 'West Ziyuan Building 2209A'
