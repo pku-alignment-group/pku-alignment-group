@@ -37,7 +37,7 @@
       <div class="image-container position-relative">
         <img src="{{ $resource.RelPermalink }}" 
              class="publication-image img-fluid" 
-             style="max-width: 300px; height: auto; cursor: pointer;"
+             style="max-width: 120px; height: auto; cursor: pointer;"
              alt="{{ $item.Title }}" 
              loading="lazy"
              onclick="showImageModal(this)">
@@ -49,10 +49,17 @@
   <div class="media-body">
 
     <div class="article-title 0.5mb-1 mt-0">
-      <a href="{{$link}}" {{ $target | safeHTMLAttr }} class="text-decoration-none">
+      <a href="{{$link}}" {{ $target | safeHTMLAttr }} class="text-decoration-none" style="font-weight: bold;">
         {{ $item.Title }}
       </a>
     </div>
+
+    <!-- 2. 摘要/预览内容 -->
+    {{ if $summary }}
+    <div class="article-style mb-2">
+      {{ $summary }}
+    </div>
+    {{ end }}
 
     <!-- 3. 作者信息，带链接和notes，支持折叠 -->
     {{ if and $show_authors_only $item.Params.authors }}
