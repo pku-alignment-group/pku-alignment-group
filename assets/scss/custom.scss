@@ -222,3 +222,24 @@ section .view-compact .media.stream-item {
   opacity: 0;
   transform: scale(0.95);
 }
+
+/* 联系信息表格样式 - 增加标签和内容之间的间距 */
+.contact-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.contact-table td {
+  padding: 6px 0;
+  vertical-align: top;
+}
+
+.contact-table td:first-child {
+  padding-right: 20px !important; /* 增加标签列右侧间距 */
+  white-space: nowrap;
+}
+
+.contact-table td:last-child {
+  padding-left: 10px !important; /* 增加内容列左侧间距 */
+}

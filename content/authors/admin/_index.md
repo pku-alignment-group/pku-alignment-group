@@ -23,7 +23,10 @@ organizations:
   - name: Peking University
     url: 'https://www.pku.edu.cn'
 
-# Lab duration (实验室时间)
+# Rank for sorting (用于排序的序号，数字越小越靠前)
+rank: 1
+
+# Start Time (加入实验室的时间)
 lab_start_date: '2019-09-01'
 # lab_end_date: '2024-08-31'  # 如果已离开实验室，请取消注释并填写结束日期
 

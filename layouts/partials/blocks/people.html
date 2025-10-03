@@ -127,7 +127,7 @@
                       <tr><td><b>Phone</b></td><td>{{ .Params.phone }}</td></tr>
                     {{ end }}
                     {{ if .Params.email }}
-                      <tr><td><b>Email</b></td><td>{{ .Params.email | replaceRE "@" " [at] " | replaceRE "\\." " [dot] " }}</td></tr>
+                      <tr><td><b>Email</b></td><td>{{ .Params.email }}</td></tr>
                     {{ end }}
                     {{ range .Params.social }}
                       {{ if eq .icon "twitter" }}
@@ -135,7 +135,7 @@
                       {{ end }}
                     {{ end }}
                     {{ if .Params.address }}
-                      <tr><td><b>Address</b></td><td>{{ .Params.address }}</td></tr>
+                      <tr><td><b>Home Page</b></td><td>{{ .Params.address }}</td></tr>
                     {{ end }}
                   </tbody>
                 </table>
@@ -147,6 +147,7 @@
         {{/* 团队成员 - 按角色分组显示 */}}
         
         {{/* 按角色分组 */}}
+        {{ $research_assistants := slice }}
         {{ $phds := slice }}
         {{ $masters := slice }}
         {{ $undergrads := slice }}
@@ -161,7 +162,9 @@
             {{ $roleDisplay = .Params.role }}
           {{ end }}
           
-          {{ if or (in $roleDisplay "Ph.D") (in $roleDisplay "PhD") }}
+          {{ if or (in $roleDisplay "Research Assistant") (in $roleDisplay "research assistant") }}
+            {{ $research_assistants = $research_assistants | append . }}
+          {{ else if or (in $roleDisplay "Ph.D") (in $roleDisplay "PhD") }}
             {{ $phds = $phds | append . }}
           {{ else if or (in $roleDisplay "Master") (in $roleDisplay "master") }}
             {{ $masters = $masters | append . }}
@@ -172,6 +175,18 @@
           {{ else }}
             {{ $others = $others | append . }}
           {{ end }}
+        {{ end }}
+        
+        {{/* 渲染Research Assistants */}}
+        {{ if $research_assistants }}
+          <div class="role-group">
+            <h2 class="role-group-title">Research Assistants</h2>
+            <div class="students-section">
+              {{ range $research_assistants }}
+                {{ partial "blocks/people-student-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
         {{ end }}
         
         {{/* 渲染Ph.D学生 */}}
@@ -235,5 +250,26 @@
         {{ end }}
       {{ end }}
     {{ end }}
+  {{ end }}
+
+  {{/* Alumni 部分 - 在所有其他部分之后 */}}
+  {{ $alumni_query := where (where site.Pages "Section" "authors") ".Params.user_groups" "intersect" (slice "Alumni") }}
+  
+  {{ if $alumni_query }}
+    {{/* Sort alumni by last name */}}
+    {{ $sort_by := $block.content.sort_by | default "Params.last_name" }}
+    {{ $sort_by = partial "blox-core/functions/get_sort_by_parameter" $sort_by }}
+    {{ $sort_ascending := $block.content.sort_ascending | default true }}
+    {{ $sort_order := cond $sort_ascending "asc" "desc" }}
+    {{ $alumni_query = sort $alumni_query $sort_by $sort_order }}
+    
+    <div class="role-group alumni-group">
+      <h2 class="role-group-title">Alumni</h2>
+      <div class="alumni-section">
+        {{ range $alumni_query }}
+          {{ partial "blocks/people-alumni-card.html" . }}
+        {{ end }}
+      </div>
+    </div>
   {{ end }}
 </div>

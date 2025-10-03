@@ -14,28 +14,32 @@ authors:
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://scholar.google.com/citations?user=eRmX5AsAAAAJ&hl=zh-CN'
+external_link: 'https://gaiejj.github.io/'
 
 # Role/position - 支持多个角色  
 role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
+  - name: Peking University
     url: ''
 
-# Lab duration (实验室时间)
-lab_start_date: '2020-03-15'
+# Rank for sorting (用于排序的序号，数字越小越靠前)
+rank: 21
+
+# Start Time (加入实验室的时间)
+lab_start_date: '2020-09-01'
 lab_end_date: '2023-12-31'
 
 
 
 interests:
   - Reinforcement Learning
-  - Value Alignment
+  - Preference Modeling
+  - AI Safety
 
 # Research mission
-research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
+research_mission: "Learning from human feedback is the key to the continuous progress of AI. I am dedicated to providing richer feedback for AI, such as natural language and formal languages, to empower AI alignment and AI safety."
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -66,5 +70,5 @@ email: 'test@example.org'
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Group Members
+  - Ph.D. Student
 ---

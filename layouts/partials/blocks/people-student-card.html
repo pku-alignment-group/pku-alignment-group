@@ -21,44 +21,11 @@
   {{ $roleDisplay = .Params.role }}
 {{ end }}
 
-{{/* 计算加入时长 */}}
-{{ $duration := "" }}
+{{/* 获取加入时间 */}}
+{{ $startTime := "" }}
 {{ if .Params.lab_start_date }}
   {{ $startDate := time .Params.lab_start_date }}
-  {{ $endDate := now }}
-  {{ if .Params.lab_end_date }}
-    {{ $endDate = time .Params.lab_end_date }}
-  {{ end }}
-  {{/* 计算年份和月份差 */}}
-  {{ $startYear := $startDate.Year }}
-  {{ $startMonth := int $startDate.Month }}
-  {{ $endYear := $endDate.Year }}
-  {{ $endMonth := int $endDate.Month }}
-  {{ $totalMonths := sub (add (mul (sub $endYear $startYear) 12) $endMonth) $startMonth }}
-  {{ $years := div $totalMonths 12 }}
-  {{ $months := mod $totalMonths 12 }}
-  {{ if gt $years 0 }}
-    {{ if eq $years 1 }}
-      {{ $duration = "1 year" }}
-    {{ else }}
-      {{ $duration = printf "%d years" $years }}
-    {{ end }}
-    {{ if gt $months 0 }}
-      {{ if eq $months 1 }}
-        {{ $duration = printf "%s 1 month" $duration }}
-      {{ else }}
-        {{ $duration = printf "%s %d months" $duration $months }}
-      {{ end }}
-    {{ end }}
-  {{ else }}
-    {{ if eq $totalMonths 1 }}
-      {{ $duration = "1 month" }}
-    {{ else if gt $totalMonths 0 }}
-      {{ $duration = printf "%d months" $totalMonths }}
-    {{ else }}
-      {{ $duration = "Just joined" }}
-    {{ end }}
-  {{ end }}
+  {{ $startTime = $startDate.Format "January 2006" }}
 {{ end }}
 
 <div class="student-member">
@@ -97,9 +64,9 @@
       </div>
     {{ end }}
     
-    {{ if $duration }}
+    {{ if $startTime }}
       <div class="student-info-item">
-        <span class="info-label">Duration:</span> {{ $duration }}
+        <span class="info-label">Start Time:</span> {{ $startTime }}
       </div>
     {{ end }}
     
@@ -112,6 +79,14 @@
     {{ if .Params.email }}
       <div class="student-info-item">
         <span class="info-label">Email:</span> {{ .Params.email }}
+      </div>
+    {{ end }}
+    
+    {{ if $link }}
+      <div class="student-info-item">
+        <a href="{{$link}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>
+          <b>Visit Personal Homepage</b>
+        </a>
       </div>
     {{ end }}
   </div>

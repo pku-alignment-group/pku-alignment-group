@@ -24,7 +24,10 @@ organizations:
   - name: Peking University
     url: ''
 
-# Lab duration (实验室时间)
+# Rank for sorting (用于排序的序号，数字越小越靠前)
+rank: 22
+
+# Start Time (加入实验室的时间)
 lab_start_date: '2020-03-15'
 lab_end_date: '2023-12-31'
 
@@ -66,5 +69,5 @@ email: 'test@example.org'
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Group Members
+  - Ph.D. Student
 ---
