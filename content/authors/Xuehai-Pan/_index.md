@@ -1,14 +1,14 @@
 ---
 # Display name
-title: Juntao Dai
+title: Xuehai Pan
 
 # Full name (for SEO)
-first_name: Juntao
-last_name: Dai
+first_name: Xuehai
+last_name: Pan
 
 # Username (this should match the folder name)
 authors:
-  - Juntao-Dai
+  - Xuehai-Pan
 
 # Is this the primary user of the site?
 superuser: false
@@ -41,32 +41,18 @@ research_mission: "Exploring innovative approaches to advance AI research. Dedic
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:jtd.acad@gmail.com'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/calico-1226
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
+    link: 'mailto:xuehaipan@pku.edu.cn'
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'jtd.acad@gmail.com'
+email: 'xuehaipan@pku.edu.cn'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
   - Alumni
 
-lab_start_date: "2020-09-01"
-lab_end_date: "2023-06-30"
-current_role: "PhD Student"
-current_institution: "MIT"
+lab_start_date: "2022-05-01"
+lab_end_date: "2024-06-30"
+current_role: "PhD Condidate"
+current_institution: "To DeepSeek"
 ---

@@ -21,14 +21,14 @@ role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
-  - name: Peking University
+  - name: 'Ph.D (2024), Peking University'
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 21
+rank: 2
 
 # Start Time (加入实验室的时间)
-lab_start_date: '2020-09-01'
+lab_start_date: '2022-09-03'
 lab_end_date: '2023-12-31'
 
 
@@ -48,13 +48,7 @@ research_mission: "Learning from human feedback is the key to the continuous pro
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:test@example.org'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: 'mailto:gaiejj@outlook.com'
   - icon: github
     icon_pack: fab
     link: https://github.com/gcushen
@@ -65,7 +59,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'test@example.org'
+email: 'gaiejj@outlook.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

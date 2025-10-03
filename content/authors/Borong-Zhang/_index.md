@@ -21,21 +21,21 @@ role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
-  - name: Peking University
+  - name: 'Ph.D (2025), Peking University'
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 22
+rank: 3
 
 # Start Time (加入实验室的时间)
-lab_start_date: '2020-03-15'
+lab_start_date: '2022-04-13'
 lab_end_date: '2023-12-31'
 
 
 
 interests:
-  - Reinforcement Learning
-  - Value Alignment
+  - AI Alignment
+  - Embodied AI
 
 # Research mission
 research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
@@ -47,16 +47,16 @@ research_mission: "Exploring innovative approaches to advance AI research. Dedic
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:test@example.org'
+    link: 'mailto:borongzh@gmail.com'
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/GeorgeCushen
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: https://scholar.google.com.hk/citations?user=TZzxOwwAAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/gcushen
+    link: https://github.com/muchvo
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -64,7 +64,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'test@example.org'
+email: 'borongzh@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

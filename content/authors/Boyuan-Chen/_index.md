@@ -21,11 +21,11 @@ role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
-  - name: Peking University
+  - name: 'Ph.D (2026), Peking University'
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 23
+rank: 4
 
 # Start Time (加入实验室的时间)
 lab_start_date: '2023-02-23'
