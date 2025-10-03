@@ -134,8 +134,12 @@
                         <tr><td><b>Twitter</b></td><td><a href="{{ .link }}" target="_blank" rel="noopener noreferrer">@{{ .link | replaceRE "https://twitter.com/" "" }}</a></td></tr>
                       {{ end }}
                     {{ end }}
-                    {{ if .Params.address }}
-                      <tr><td><b>Home Page</b></td><td>{{ .Params.address }}</td></tr>
+                    {{ if $link }}
+                      <tr><td>
+                        <a href="{{$link}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>
+                          <b>Visit Personal Homepage</b>
+                        </a>
+                      </td><td></td></tr>
                     {{ end }}
                   </tbody>
                 </table>

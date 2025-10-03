@@ -184,6 +184,20 @@
           }
         }
       }
+
+      .faculty-homepage-link {
+        margin-top: 0.15rem;
+        
+        a {
+          color: #0066cc;
+          text-decoration: none;
+          font-size: 0.85rem;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 
