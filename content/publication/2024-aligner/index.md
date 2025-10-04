@@ -1,6 +1,9 @@
 ---
 title: "Aligner: Efficient Alignment by Learning to Correct"
 
+# 排序权重：数字越小越靠前
+weight: 9
+
 external_link: "https://arxiv.org/abs/2402.02416"
 
 authors:

@@ -1,6 +1,9 @@
 ---
 title: "SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Constrained Learning"
 
+# 排序权重：数字越小越靠前
+weight: 2
+
 # External link - clicking title will redirect to this URL
 external_link: "https://arxiv.org/abs/2503.03480"
 

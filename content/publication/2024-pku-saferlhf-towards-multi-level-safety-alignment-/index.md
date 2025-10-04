@@ -1,6 +1,9 @@
 ---
 title: "PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference"
 
+# 排序权重：数字越小越靠前
+weight: 13
+
 external_link: "https://arxiv.org/abs/2406.15513"
 
 authors:

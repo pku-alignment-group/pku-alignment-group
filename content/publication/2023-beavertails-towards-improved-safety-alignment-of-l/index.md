@@ -1,6 +1,9 @@
 ---
 title: "BeaverTails: Towards Improved Safety Alignment of LLM via a Human-Preference Dataset"
 
+# 排序权重：数字越小越靠前
+weight: 18
+
 external_link: "https://arxiv.org/abs/2307.04657"
 
 authors:

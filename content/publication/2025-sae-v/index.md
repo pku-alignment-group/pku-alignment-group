@@ -1,6 +1,9 @@
 ---
 title: "SAE-V: Interpreting Multimodal Models for Enhanced Alignment"
 
+# 排序权重：数字越小越靠前
+weight: 3
+
 external_link: "https://arxiv.org/abs/2502.17514"
 
 authors:

@@ -1,6 +1,9 @@
 ---
 title: "Safe RLHF: Safe Reinforcement Learning from Human Feedback"
 
+# 排序权重：数字越小越靠前
+weight: 15
+
 external_link: "https://openreview.net/forum?id=TyFrPOKYXw"
 
 authors:

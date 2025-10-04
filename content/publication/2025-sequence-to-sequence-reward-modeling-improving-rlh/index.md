@@ -1,6 +1,9 @@
 ---
 title: "Sequence to Sequence Reward Modeling: Improving RLHF by Language Feedback"
 
+# 排序权重：数字越小越靠前
+weight: 6
+
 external_link: "https://arxiv.org/abs/2409.00162"
 
 authors:

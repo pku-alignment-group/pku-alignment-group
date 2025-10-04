@@ -1,6 +1,9 @@
 ---
 title: "The application of large language models in medicine: A scoping review"
 
+# 排序权重：数字越小越靠前
+weight: 14
+
 external_link: "https://www.cell.com/iscience/fulltext/S2589-0042(24)00935-0"
 
 authors:

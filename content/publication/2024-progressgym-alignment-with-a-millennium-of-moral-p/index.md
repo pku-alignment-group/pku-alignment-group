@@ -1,6 +1,9 @@
 ---
 title: "ProgressGym: Alignment with a Millennium of Moral Progress"
 
+# 排序权重：数字越小越靠前
+weight: 12
+
 external_link: "https://proceedings.neurips.cc/paper_files/paper/2024/file/1a6d49c1a298ebb799d005b7b90ab31d-Paper-Datasets_and_Benchmarks_Track.pdf"
 
 authors:

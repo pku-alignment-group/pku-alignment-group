@@ -1,6 +1,9 @@
 ---
 title: "AI Alignment: A Comprehensive Survey"
 
+# 排序权重：数字越小越靠前
+weight: 1
+
 external_link: "https://arxiv.org/abs/2310.19852"
 
 authors:

@@ -1,6 +1,9 @@
 ---
 title: "OmniSafe: An Infrastructure for Accelerating Safe Reinforcement Learning Research"
 
+# 排序权重：数字越小越靠前
+weight: 8
+
 external_link: "https://www.jmlr.org/papers/volume25/23-0681/23-0681.pdf"
 
 authors:

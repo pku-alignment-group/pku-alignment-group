@@ -1,0 +1,38 @@
+# Publication排序配置文件
+# ================================
+# 使用方法：
+#   1. 调整下面的顺序（上面的论文会显示在前面）
+#   2. 运行命令: python3 update_publication_order.py
+#   3. 重新构建网站: hugo
+# ================================
+
+2023-ai-alignment-survey
+2025-safevla
+2025-sae-v
+2025-revolutionizing-health-care-the-transformative-imp
+2025-stream-aligner-efficient-sentence-level-alignment-
+2025-sequence-to-sequence-reward-modeling-improving-rlh
+2025-align-anything
+
+
+2024-omnisafe
+2024-aligner
+2024-safesora-towards-safety-alignment-of-text2video-ge
+2024-language-models-resist-alignment-evidence-from-dat
+2024-progressgym-alignment-with-a-millennium-of-moral-p
+2024-pku-saferlhf-towards-multi-level-safety-alignment-
+2024-the-application-of-large-language-models-in-medici
+2024-safe-rlhf-safe-reinforcement-learning-from-human-f
+2024-safedreamer-safe-reinforcement-learning-with-world
+
+
+2023-safety-gymnasium-a-unified-safe-reinforcement-lear
+2023-beavertails-towards-improved-safety-alignment-of-l
+
+# ================================
+# 提示：
+# - 直接在这个文件里调整论文的先后顺序
+# - 每行一个论文文件夹名
+# - 以#开头的是注释行
+# - 保存后运行update_publication_order.py即可生效
+# ================================

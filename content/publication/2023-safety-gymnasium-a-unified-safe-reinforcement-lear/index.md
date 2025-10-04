@@ -1,6 +1,9 @@
 ---
 title: "Safety-Gymnasium: A Unified Safe Reinforcement Learning Benchmark"
 
+# 排序权重：数字越小越靠前
+weight: 17
+
 external_link: "https://proceedings.neurips.cc/paper_files/paper/2023/file/3c557a3d6a48cc99444f85e924c66753-Paper-Datasets_and_Benchmarks.pdf"
 
 authors:

@@ -1,6 +1,9 @@
 ---
 title: "Align Anything: Training All-Modality Models to Follow Instructions with Language Feedback"
 
+# 排序权重：数字越小越靠前
+weight: 7
+
 external_link: "https://arxiv.org/abs/2402.02416"
 
 authors:
@@ -49,4 +52,5 @@ image:
 projects: []
 slides: ""
 ---
+
 

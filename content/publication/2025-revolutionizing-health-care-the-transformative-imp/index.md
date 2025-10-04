@@ -1,6 +1,9 @@
 ---
 title: "Revolutionizing health care: The transformative impact of large language models in medicine"
 
+# 排序权重：数字越小越靠前
+weight: 4
+
 external_link: "https://www.jmir.org/2025/1/e59069"
 
 authors:

@@ -1,6 +1,9 @@
 ---
 title: "Language Models Resist Alignment: Evidence From Data Compression"
 
+# 排序权重：数字越小越靠前
+weight: 11
+
 external_link: "https://arxiv.org/abs/2406.06144"
 
 authors:

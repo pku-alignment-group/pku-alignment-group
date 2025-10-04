@@ -1,6 +1,9 @@
 ---
 title: "SafeSora: Towards Safety Alignment of Text2Video Generation via a Human Preference Dataset"
 
+# 排序权重：数字越小越靠前
+weight: 10
+
 external_link: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1eb543faf7c69e8a7eb8b85f70be818f-Abstract-Datasets_and_Benchmarks_Track.html"
 
 authors:
