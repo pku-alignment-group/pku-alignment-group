@@ -1,23 +1,23 @@
 ---
 # Display name
-title: Juntao Dai
+title: Tianyi Qiu
 
 # Full name (for SEO)
-first_name: Juntao
-last_name: Dai
+first_name: Tianyi
+last_name: Qiu
 
 # Username (this should match the folder name)
 authors:
-  - Juntao-Dai
+  - Tianyi-Qiu
 
 # Is this the primary user of the site?
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://scholar.google.com/citations?user=eRmX5AsAAAAJ&hl=zh-CN'
+external_link: 'https://tianyiqiu.net'
 
 # Role/position - 支持多个角色  
-role: Research Assistant
+role: Undergraduate Student
 
 # Organizations/Affiliations
 organizations:
@@ -25,18 +25,21 @@ organizations:
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 10
+rank: 30
 
 # Start Time (加入实验室的时间)
-lab_start_date: '2020-03-15'
+lab_start_date: '2023-05-01'
 lab_end_date: '2023-12-31'
 
+
+
 interests:
-  - Reinforcement Learning
   - Value Alignment
+  - Human-AI Interaction
+  - Scalable Oversight
 
 # Research mission
-research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
+research_mission: "TODO: Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -45,16 +48,13 @@ research_mission: "Exploring innovative approaches to advance AI research. Dedic
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:jtd.acad@gmail.com'
-  - icon: twitter
-    icon_pack: fab
-    link: https://twitter.com/GeorgeCushen
+    link: 'mailto:qiutianyi.qty@gmail.com'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: https://scholar.google.com/citations?user=teiNc0sAAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/calico-1226
+    link: https://github.com/TianyiQ
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -62,10 +62,10 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'jtd.acad@gmail.com'
+email: 'qiutianyi.qty@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Research Assistant
+  - Undergraduate Student
 ---

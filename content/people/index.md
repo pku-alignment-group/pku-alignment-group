@@ -11,8 +11,11 @@ sections:
       #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
       user_groups:
           - Group Leader
-          - Group Members
-      sort_by: Params.last_name
+          - Research Assistant
+          - Ph.D. Student
+          - Undergraduate Student
+          - Research Intern
+      sort_by: Params.rank
       sort_ascending: true
     design:
       show_interests: true

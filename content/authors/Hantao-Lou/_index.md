@@ -1,43 +1,45 @@
 ---
 # Display name
-title: Yaodong Yang
+title: Hantao Lou
 
-# Full Name (for SEO)
-first_name: Yaodong
-last_name: Yang
+# Full name (for SEO)
+first_name: Hantao
+last_name: Lou
+
+# Username (this should match the folder name)
+authors:
+  - Hantao-Lou
 
 # Is this the primary user of the site?
-superuser: true
+superuser: false
 
-# External link to redirect author page
-external_link: 'https://www.yangyaodong.com'
+# External link to redirect author page (替换为实际的个人主页链接)
+external_link: 'https://htlou.github.io'
 
-# Role/position - 支持多个角色
-roles:
-  - Assistant Professor
-  - Institute for AI, Peking University
-  - Director of PKU Alignment Group
+# Role/position - 支持多个角色  
+role: Undergraduate Student
 
 # Organizations/Affiliations
 organizations:
   - name: Peking University
-    url: 'https://www.pku.edu.cn'
+    url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 1
+rank: 31
 
 # Start Time (加入实验室的时间)
-lab_start_date: '2019-09-01'
-# lab_end_date: '2024-08-31'  # 如果已离开实验室，请取消注释并填写结束日期
+lab_start_date: '2023-07-15'
+lab_end_date: '2023-12-31'
 
 
 
 interests:
-  - 人工智能对齐
-  - 强化学习理论
-  - 多智能体系统
-  - AI安全与可解释性
+  - Formal Verification
+  - Mechanistic Interpretability
+  - Reinforcement Learning
 
+# Research mission
+research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
 # education:
 #   courses:
 #     - course: PhD in Artificial Intelligence
@@ -55,18 +57,15 @@ interests:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-  - icon: house
-    icon_pack: fas
-    link: https://www.yangyaodong.com
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:yaodong.yang@outlook.com'
+    link: 'mailto:hantaolou.htlou@gmail.com'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.com/citations?user=6yL0xw8AAAAJ&hl
+    link: https://scholar.google.com/citations?user=h1s9iX4AAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/PKU-YYang
+    link: https://github.com/htlou
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -74,17 +73,10 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'yaodong.yang@pku.edu.cn'
-
-# Additional contact information for faculty layout
-office: 'West Ziyuan Building 2209A'
-address: 'https://www.yangyaodong.com'
-
-# Highlight the author in author lists? (true/false)
-highlight_name: true
+email: 'hantaolou.htlou@gmail.com'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Group Leader
+  - Undergraduate Student
 ---

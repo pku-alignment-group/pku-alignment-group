@@ -1,0 +1,74 @@
+{{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+{{/* Get link to user's profile page or external link */}}
+{{ $link := "" }}
+{{ $linkTarget := "" }}
+{{ $linkRel := "" }}
+{{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
+  {{ if .Params.external_link }}
+    {{ $link = .Params.external_link }}
+    {{ $linkTarget = " target=\"_blank\"" }}
+    {{ $linkRel = " rel=\"noopener noreferrer\"" }}
+  {{ else }}
+    {{ $link = .RelPermalink }}
+  {{ end }}
+{{ end }}
+
+{{/* 获取在实验室的时间 */}}
+{{ $duration := "" }}
+{{ if .Params.lab_start_date }}
+  {{ $startDate := time .Params.lab_start_date }}
+  {{ $startYear := $startDate.Format "2006" }}
+  
+  {{ if .Params.lab_end_date }}
+    {{ $endDate := time .Params.lab_end_date }}
+    {{ $endYear := $endDate.Format "2006" }}
+    {{ $duration = printf "%s-%s" $startYear $endYear }}
+  {{ else }}
+    {{ $duration = printf "%s-Present" $startYear }}
+  {{ end }}
+{{ end }}
+
+<div class="alumni-member">
+  {{/* 圆形头像 */}}
+  <div class="alumni-photo">
+    {{ $src := "" }}
+    {{ if site.Params.features.avatar.gravatar }}
+      {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 .Params.email) }}
+    {{ else if $avatar }}
+      {{ $avatar_image := $avatar.Fill "320x320 Center" }}
+      {{ $src = $avatar_image.RelPermalink }}
+    {{ end }}
+    
+    {{ if $src }}
+      {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>{{end}}
+        <img src="{{ $src }}" alt="{{ .Title }}" class="alumni-img">
+      {{if $link}}</a>{{end}}
+    {{ else }}
+      <div class="alumni-img-placeholder">
+        <span>{{ substr .Title 0 1 | upper }}</span>
+      </div>
+    {{ end }}
+  </div>
+
+  {{/* 名字和时间 */}}
+  <div class="alumni-name">
+    {{with $link}}<a href="{{.}}"{{$linkTarget | safeHTMLAttr}}{{$linkRel | safeHTMLAttr}}>{{end}}
+      {{ .Title }}{{ if $duration }} ({{ $duration }}){{ end }}
+    {{if $link}}</a>{{end}}
+  </div>
+
+  {{/* 身份（角色） */}}
+  {{ if .Params.current_role }}
+    <div class="alumni-role">
+      {{ .Params.current_role }}
+    </div>
+  {{ end }}
+
+  {{/* 学校/机构 */}}
+  {{ if .Params.current_institution }}
+    <div class="alumni-institution">
+      {{ .Params.current_institution }}
+    </div>
+  {{ end }}
+</div>
+

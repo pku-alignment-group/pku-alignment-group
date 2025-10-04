@@ -7,7 +7,6 @@
 
 appearance:
   theme_day: minimal
-  theme_night: minimal
   font: rose
   font_size: M
 
@@ -37,7 +36,7 @@ header:
     align: r
     show_logo: true
     show_language: false
-    show_day_night: true
+    show_day_night: false
     show_search: false
     highlight_active_link: true
 
@@ -119,15 +118,16 @@ publications:
 
 # 作者个人主页链接配置
 author_homepages:
-  "Jiaming Ji": "https://jijiaming.com/"
-  "Yaodong Yang": "https://www.yangyaodong.com/"
-  "Boyuan Chen": "https://cby-pku.github.io/"
-  "Jiayi Zhou": "https://gaiejj.github.io/"
+  "Yaodong Yang": "https://www.yangyaodong.com"
+  "Jiaming Ji": "https://jijiaming.com"
+  "Boyuan Chen": "https://cby-pku.github.io"
+  "Jiayi Zhou": "https://gaiejj.github.io"
   # "Borong Zhang": "https://borong.me"
-  # "Hantao Lou": "https://scholar.google.com/citations?user=example2"
-  # "Josef Dai": "https://scholar.google.com/citations?user=example3"
-  # "Juntao Dai": "https://scholar.google.com/citations?user=example4"
-  # "Tianyi Qiu": "https://scholar.google.com/citations?user=example5"
+  "Kaile Wang": "https://scholar.google.com/citations?user=hTNgG1YAAAAJ"
+  "Hantao Lou": "https://htlou.github.io"
+  "Josef Dai": "https://scholar.google.com/citations?user=eRmX5AsAAAAJ"
+  "Juntao Dai": "https://scholar.google.com/citations?user=eRmX5AsAAAAJ"
+  "Tianyi Qiu": "https://tianyiqiu.net"
   # "Yuhao Zhang": "https://scholar.google.com/citations?user=example6"
   # "Donghai Hong": "https://scholar.google.com/citations?user=example7"
-  # "Xuehai Pan": "https://scholar.google.com/citations?user=example8"
+  "Xuehai Pan": "https://scholar.google.com/citations?user=VIwJg4gAAAAJ"

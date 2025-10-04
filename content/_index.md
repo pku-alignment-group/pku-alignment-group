@@ -5,16 +5,18 @@ date: 2025-09-25
 type: landing
 
 sections:
-  - block: hero
+  - block: markdown
     content:
-      title: |
-        Our Mission
-      image:
-        filename: welcome.jpg
-      text: |
-        <br>
+      title: Our Mission
+      text: |-
+        The **PKU-Alignment Group**, under the **[PKU Pair-Lab](www.pair-lab.ai)**, is a pioneering research interest group dedicated to advancing the frontiers of AI safety and alignment. Our mission is to explore the fundamental algorithms and mechanisms that underpin AI alignment, driving both theoretical innovation and practical deployment. 
         
-        TODO...
+        Our mission is to ensure that AI systems remain consistently aligned with human goals. The team actively shares the latest advances in AI research, while fostering the development and real-world adoption of safety and alignment practices. Our key research direction include:
+        - **Mechanisms and Interpretability in Alignment**: Investigating whether large models can be effectively aligned, their resilience to misalignment, and the interpretability of alignment mechanisms;
+        - **Reinforcement Learning and Post-training of Language Models**: Designing more efficient and reliable post-alignment algorithms;
+        - **Safety Alignment and Superalignment**: Addressing frontier-risk alignment challenges such as deceptive alignment, scalable oversight, CBRN hazards, and interpretability; as well as value alignment issues, including regional value alignment and bidirectional value lock-in.
+    design:
+      columns: '1'
   
   - block: collection
     content:
@@ -34,26 +36,6 @@ sections:
     design:
       view: card
       columns: '1'
-  
-  - block: markdown
-    content:
-      title:
-      subtitle: ''
-      text:
-    design:
-      columns: '1'
-      background:
-        image: 
-          filename: coders.jpg
-          filters:
-            brightness: 1
-          parallax: false
-          position: center
-          size: cover
-          text_color_light: true
-      spacing:
-        padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
 
   - block: collection
     content:

@@ -56,12 +56,18 @@ main.page-body {
   width: 100% !important;
 }
 
-/* 2. 保持原来的layout，只是把图片放大 */
+/* 2. News/Post标题加粗 */
+.view-compact .article-title a {
+  font-weight: bold !important;
+  font-size: 1.1rem !important;
+}
+
+/* 3. 保持原来的layout，设置合理的图片大小 */
 .view-compact img[src*="featured"] {
-  /* 保持原来的布局比例，只是从150px改为300px */
-  width: 300px !important;   
+  /* 设置为120px，更适合列表预览 */
+  width: 120px !important;   
   height: auto !important;
-  min-width: 300px !important;
+  min-width: 120px !important;
   object-fit: cover !important;
   border-radius: 8px !important;
   
@@ -92,7 +98,7 @@ main.page-body {
 /* 4. 确保图片链接容器也相应调整 */
 .view-compact a[href*="featured"] img,
 .view-compact a[target="_blank"] img {
-  width: 300px !important;  /* 更新到新尺寸 */
+  width: 120px !important;  /* 更新到新尺寸 */
   height: auto !important;
 }
 
@@ -132,14 +138,14 @@ section .view-compact .media.stream-item {
 
 @media (max-width: 768px) {
   .view-compact img[src*="featured"] {
-    width: 250px !important;  /* 移动端合理尺寸 */
+    width: 100px !important;  /* 移动端合理尺寸 */
     height: auto !important;
-    min-width: 250px !important;
+    min-width: 100px !important;
   }
   
   .view-compact a[href*="featured"] img,
   .view-compact a[target="_blank"] img {
-    width: 250px !important;
+    width: 100px !important;
     height: auto !important;
   }
   
@@ -221,4 +227,25 @@ section .view-compact .media.stream-item {
 .isotope-item[style*="display: none"] {
   opacity: 0;
   transform: scale(0.95);
+}
+
+/* 联系信息表格样式 - 增加标签和内容之间的间距 */
+.contact-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.contact-table td {
+  padding: 6px 0;
+  vertical-align: top;
+}
+
+.contact-table td:first-child {
+  padding-right: 20px !important; /* 增加标签列右侧间距 */
+  white-space: nowrap;
+}
+
+.contact-table td:last-child {
+  padding-left: 10px !important; /* 增加内容列左侧间距 */
 }
