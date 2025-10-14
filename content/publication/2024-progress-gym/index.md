@@ -24,7 +24,7 @@ author_notes:
 
 date: "2024-01-01T00:00:00Z"
 publication_types: ['paper-conference']
-publication: "NeurIPS 2024."
+publication: "NeurIPS 2024 Spotlight."
 publication_short: "NeurIPS"
 
 summary: "ProgressGym: Alignment with a Millennium of Moral Progress"

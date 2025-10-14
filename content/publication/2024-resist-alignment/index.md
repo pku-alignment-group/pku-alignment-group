@@ -21,14 +21,14 @@ author_notes:
 - "Equal Contribution"
 - "Equal Contribution"
 - "Equal Contribution"
-- ""
+- "Equal Contribution"
 - ""
 - ""
 - ""
 
 date: "2024-01-01T00:00:00Z"
-publication_types: ['article']
-publication: "Arxiv 2024."
+publication_types: ['paper-conference']
+publication: "ACL 2025 Best Paper"
 publication_short: "Arxiv"
 
 summary: "Language Models Resist Alignment: Evidence From Data Compression"

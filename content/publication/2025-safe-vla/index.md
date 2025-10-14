@@ -30,7 +30,7 @@ date: "2025-03-01T00:00:00Z"
 doi: ""
 
 # Publication type
-publication_types: ["article"]
+publication_types: ["paper-conference"]
 
 # Publication name
 publication: "NeurIPS 2025 Spotlight"

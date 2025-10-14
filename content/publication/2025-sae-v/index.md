@@ -19,9 +19,9 @@ author_notes:
 - ""
 
 date: "2025-02-01T00:00:00Z"
-publication_types: ["article"]
-publication: "Arxiv 2025"
-publication_short: "Arxiv"
+publication_types: ["paper-conference"]
+publication: "ICML 2025"
+publication_short: "ICML"
 
 summary: "SAE-V focuses on interpreting multimodal models for enhanced alignment."
 

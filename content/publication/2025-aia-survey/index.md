@@ -61,9 +61,9 @@ author_notes:
 - ""
 
 date: "2023-10-01T00:00:00Z"
-publication_types: ["article"]
-publication: "Arxiv 2024"
-publication_short: "Arxiv"
+publication_types: ["article-journal"]
+publication: "ACM Compute Survey 2025 (Impact Factor: 28.0 (ranked 1/147 in Computer Science Theory & Methods))"
+publication_short: "Survey"
 
 summary: "A comprehensive survey on AI alignment covering various aspects and approaches."
 
