@@ -3,7 +3,7 @@ title: PKU-Alignment Group in NeurIPS 2025！
 date: 2025-09-20
 ---
 
-Congratulations to Richard Hendricks for winning first place in the Wowchemy Prize.
+TODO!
 
 <!--more-->
 

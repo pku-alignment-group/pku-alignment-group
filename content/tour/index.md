@@ -23,17 +23,17 @@ sections:
         align: left
         background:
           image:
-            filename: contact.jpg
+            filename: AI-TV-Yaodong-Yang.png
             filters:
               brightness: 0.7
           position: center
           color: '#555'
-      - title: World-Class Semiconductor Lab
-        content: 'Just opened last month!'
+      - title: PKU-Alignment Group @Pair-LAB
+        content: 'AI Safety and Alignment!'
         align: right
         background:
           image:
-            filename: welcome.jpg
+            filename: all-people.jpg
             filters:
               brightness: 0.5
           position: center
