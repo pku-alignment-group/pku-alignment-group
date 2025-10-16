@@ -25,7 +25,7 @@ organizations:
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 5
+rank: 6
 
 # Start Time (加入实验室的时间)
 lab_start_date: '2023-09-01'

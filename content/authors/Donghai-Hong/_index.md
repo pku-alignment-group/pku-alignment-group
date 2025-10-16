@@ -1,45 +1,43 @@
 ---
 # Display name
-title: Boyuan Chen
+title: Donghai Hong
 
 # Full name (for SEO)
-first_name: Boyuan
-last_name: Chen
+first_name: Donghai
+last_name: Hong
 
 # Username (this should match the folder name)
 authors:
-  - Boyuan-Chen
+  - Donghai-Hong
 
 # Is this the primary user of the site?
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://cby-pku.github.io'
+external_link: 'https://scholar.google.com/citations?user=JQx-_5gAAAAJ'
 
 # Role/position - 支持多个角色  
 role: Ph.D Student
 
 # Organizations/Affiliations
 organizations:
-  - name: 'Ph.D (2026), Peking University'
+  - name: 'MSc (2024), Peking University'
     url: ''
 
 # Rank for sorting (用于排序的序号，数字越小越靠前)
-rank: 5
+rank: 3
 
 # Start Time (加入实验室的时间)
-lab_start_date: '2023-02-23'
-lab_end_date: '2023-12-31'
+lab_start_date: '2023-12-15'
 
 
 
 interests:
-  - Reinforcement Learning
-  - Scalable Oversight
-  - Superalignment
+  - Safety Alignment
+  - Safety Evaluation
 
 # Research mission
-research_mission: "Develop scalable oversight and moral alignment mechanisms that integrate theoretical and empirical approaches to ensure ethically grounded, socially responsible intelligence beyond human-level capabilities."
+research_mission: "My research focuses on the safety and capabilities of AI systems. This includes the accurate and scalable evaluation of AI systems, as well as ensuring they align with human intent and values through mechanism design."
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -48,13 +46,13 @@ research_mission: "Develop scalable oversight and moral alignment mechanisms tha
 social:
   - icon: envelope
     icon_pack: fas
-    link: 'mailto:boyuan.chen.byc@gmail.com'
+    link: 'mailto:donghai.hong@stu.pku.edu.cn'
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.com/citations?user=o23sDqkAAAAJ
+    link: https://scholar.google.com/citations?user=JQx-_5gAAAAJ
   - icon: github
     icon_pack: fab
-    link: https://github.com/cby-pku
+    link: https://github.com/Kass123777
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -62,7 +60,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'boyuan.chen.byc@gmail.com'
+email: 'donghai.hong@stu.pku.edu.cn'
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
