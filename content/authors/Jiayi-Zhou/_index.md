@@ -35,8 +35,8 @@ lab_end_date: '2023-12-31'
 
 interests:
   - Reinforcement Learning
-  - Preference Modeling
   - AI Safety
+  - Preference Modeling
 
 # Research mission
 research_mission: "Learning from human feedback is the key to the continuous progress of AI. I am dedicated to providing richer feedback for AI, such as natural language and formal languages, to empower AI alignment and AI safety."

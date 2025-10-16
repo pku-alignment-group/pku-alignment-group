@@ -35,31 +35,13 @@ lab_end_date: '2023-12-31'
 
 interests:
   - Value Alignment
-  - Human-AI Interaction
   - Scalable Oversight
+  - Human-AI Interaction
+  - AI Societal Impact
 
 # Research mission
-research_mission: "TODO: Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
+research_mission: "To facilitate human moral progress with truth-seeking AI. Pervasive AI influence is harming the epistemics of the human-AI collective, and I hope to reverse the trend and turn them into facilitators of collective reflection."
 
-# Social/Academic Networking
-# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
-#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
-#   form "mailto:your-email@example.com" or "#contact" for contact widget.
-social:
-  - icon: envelope
-    icon_pack: fas
-    link: 'mailto:qiutianyi.qty@gmail.com'
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.com/citations?user=teiNc0sAAAAJ
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/TianyiQ
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'qiutianyi.qty@gmail.com'

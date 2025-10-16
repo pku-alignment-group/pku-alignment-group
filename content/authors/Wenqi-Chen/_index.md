@@ -14,7 +14,7 @@ authors:
 superuser: false
 
 # External link to redirect author page (替换为实际的个人主页链接)
-external_link: 'https://scholar.google.com/citations?hl=en&user=v7Gd8tUAAAAJ'
+external_link: 'https://github.com/d4yz3ro'
 
 # Role/position - 支持多个角色  
 role: Research Intern
@@ -31,34 +31,12 @@ rank: 41
 lab_start_date: '2024-07-01'
 lab_end_date: '2023-12-31'
 
-
-
 interests:
   - Reinforcement Learning
   - AI Alignment
 
 # Research mission (optional, max 20 words)
-research_mission: "Building safe and aligned AI systems through robust reinforcement learning."
-
-# Social/Academic Networking
-# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
-#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
-#   form "mailto:your-email@example.com" or "#contact" for contact widget.
-social:
-  - icon: envelope
-    icon_pack: fas
-    link: 'mailto:wqchen1024@gmail.com'
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.com/citations?hl=en&user=v7Gd8tUAAAAJ
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/gcushen
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
+research_mission: "Devoted to finding and overseeing advanced AI failure modes, aiming to proactively identify and mitigate risks to ensure the safe and reliable development of artificial intelligence."
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'wqchen1024@gmail.com'

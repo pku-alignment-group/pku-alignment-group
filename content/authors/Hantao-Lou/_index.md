@@ -34,43 +34,12 @@ lab_end_date: '2023-12-31'
 
 
 interests:
+  - AI Alignment
   - Formal Verification
   - Mechanistic Interpretability
-  - Reinforcement Learning
 
 # Research mission
-research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
-# education:
-#   courses:
-#     - course: PhD in Artificial Intelligence
-#       institution: Stanford University
-#       year: 2012
-#     - course: MEng in Artificial Intelligence
-#       institution: Massachusetts Institute of Technology
-#       year: 2009
-#     - course: BSc in Artificial Intelligence
-#       institution: Massachusetts Institute of Technology
-#       year: 2008
-
-# Social/Academic Networking
-# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
-#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
-#   form "mailto:your-email@example.com" or "#contact" for contact widget.
-social:
-  - icon: envelope
-    icon_pack: fas
-    link: 'mailto:hantaolou.htlou@gmail.com'
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.com/citations?user=h1s9iX4AAAAJ
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/htlou
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
+research_mission: "Supervision signals are fundamental to AI alignment and safety. My research aims to develop scalable, stable, and verifiable supervision through formal verification and mechanistic interpretability, and to leverage reinforcement learning for optimizing the utilization of these signals in frontier AI systems."
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'hantaolou.htlou@gmail.com'
