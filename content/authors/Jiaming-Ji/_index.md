@@ -39,7 +39,7 @@ interests:
   - AI for Science
 
 # Research mission
-research_mission: "Exploring innovative approaches to advance AI research. Dedicated to pushing boundaries in machine learning. Committed to developing robust and ethical AI solutions. Striving to make meaningful contributions to the field."
+research_mission: "I aim to ensure AI systems are safe, aligned, and beneficial by developing principled alignment mechanisms and exploring large model applications in socially impactful domains such as healthcare, education, and science."
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
