@@ -8,12 +8,27 @@ sections:
   - block: slider
     content:
       slides:
+      - title: PKU-Alignment Group @Pair-LAB
+        content: 'AI Safety and Alignment!'
+        align: right
+        background:
+          image:
+            filename: welcome.jpg
+            filters:
+              brightness: 0.5
+          position: center
+          color: '#333'
+        link:
+          icon: graduation-cap
+          icon_pack: fas
+          text: Join Us
+          url: ../contact/
       - title: 👋 ACL 2025 Best Paper
         content: Group Members at ACL 2025!
         align: center
         background:
           image:
-            filename: ACL 2025 together.jpg
+            filename: 2025acl.jpg
             filters:
               brightness: 0.7
           position: right
@@ -28,21 +43,6 @@ sections:
               brightness: 0.7
           position: center
           color: '#555'
-      - title: PKU-Alignment Group @Pair-LAB
-        content: 'AI Safety and Alignment!'
-        align: right
-        background:
-          image:
-            filename: all-people.jpg
-            filters:
-              brightness: 0.5
-          position: center
-          color: '#333'
-        link:
-          icon: graduation-cap
-          icon_pack: fas
-          text: Join Us
-          url: ../contact/
     design:
       # Slide height is automatic unless you force a specific height (e.g. '400px')
       slide_height: ''
@@ -51,7 +51,7 @@ sections:
       loop: false
       # Duration of transition between slides (in ms)
       interval: 2000
-      
+
   - block: markdown
     content:
       title: Our Mission
