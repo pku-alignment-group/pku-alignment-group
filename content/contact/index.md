@@ -11,8 +11,9 @@ sections:
       text: |-
         <style>
           body { background-color: #ffffff; }
-          .home-section { background: #ffffff !important; }
+          .home-section { background: #ffffff !important; padding: 65px 0 !important; border-bottom: 1px solid #e5e7eb; }
           .home-section:nth-of-type(even) { background: #ffffff !important; }
+          .home-section:last-of-type { border-bottom: 0; }
         </style>
         <div class="fs-5" style="font-family: 'Times New Roman', Times, serif;">
           <h1 class="mb-3 text-center">Contact Us</h1>
@@ -24,6 +25,7 @@ sections:
             <div class="mb-3">Whether or not you pass the application, we will actively contact you and inform you of the result. 无论你是否通过申请，我们都会主动联系并通知你结果。</div>
             <div class="mt-4 text-center">
               <a class="btn btn-primary btn-lg" href="https://hwcdc27ergv.feishu.cn/share/base/form/shrcnujPFnMnEL4tFrtPLXV9qad" target="_blank" rel="noopener">Application Form</a>
+              <a class="btn btn-outline-secondary btn-lg ms-2" href="https://www.notion.so/28f0e109242f80749175c1c2dd574f09?source=copy_link" target="_blank" rel="noopener">Resources / 项目一览</a>
             </div>
           </div>
         </div>
