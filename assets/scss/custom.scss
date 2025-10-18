@@ -187,6 +187,14 @@ section .view-compact .media.stream-item {
   -moz-osx-font-smoothing: grayscale !important;
 }
 
+/* 报道来源 - 小灰字模块 */
+.report-source {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
 /* 9. Publication页面搜索和筛选器样式 */
 .publication-filters {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -248,4 +256,28 @@ section .view-compact .media.stream-item {
 
 .contact-table td:last-child {
   padding-left: 10px !important; /* 增加内容列左侧间距 */
+}
+
+/* 首页 Latest News 卡片图片：铺满卡片内容宽度 */
+.view-card a > .img-hover-zoom,
+.view-card .img-hover-zoom {
+  width: 100% !important;
+}
+
+.view-card .article-banner {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important; /* 避免被主题默认 max-width 限制 */
+  height: auto !important;
+}
+
+/* 根据屏幕限制图片的最大高度，避免过高占位 */
+@media (min-width: 1200px) {
+  .view-card .article-banner { max-height: 560px !important; }
+}
+@media (max-width: 1199px) and (min-width: 768px) {
+  .view-card .article-banner { max-height: 480px !important; }
+}
+@media (max-width: 767px) {
+  .view-card .article-banner { max-height: 360px !important; }
 }

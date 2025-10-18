@@ -1,0 +1,13 @@
+<span class="report-source">
+  {{- with .Get "label" -}}
+    {{ . }}
+  {{- else -}}
+    报道来源：
+  {{- end -}}
+  {{- if .Inner -}}
+    {{ .Inner | markdownify }}
+  {{- else if .Get 0 -}}
+    {{ .Get 0 | markdownify }}
+  {{- end -}}
+</span>
+

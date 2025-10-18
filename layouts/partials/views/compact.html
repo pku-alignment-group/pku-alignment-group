@@ -28,6 +28,15 @@
   {{ $summary = $item.Summary }}
 {{ end }}
 
+{{/* Prefer first paragraph for posts on home News list */}}
+{{ $firstPara := "" }}
+{{ if eq $item.Type "post" }}
+  {{ $paras := findRE "(?s)<p[\\s\\S]*?</p>" $item.Content 1 }}
+  {{ if gt (len $paras) 0 }}
+    {{ $firstPara = index $paras 0 }}
+  {{ end }}
+{{ end }}
+
 <div class="media stream-item view-compact d-flex">
   <!-- 1. 图片放在左边，在图片容器内居中 -->
   <div class="0.5mr-1 flex-shrink-0">
@@ -55,9 +64,13 @@
     </div>
 
     <!-- 2. 摘要/预览内容 -->
-    {{ if $summary }}
+    {{ if or $firstPara $summary }}
     <div class="article-style mb-2">
-      {{ $summary }}
+      {{ if $firstPara }}
+        {{ $firstPara | safeHTML }}
+      {{ else }}
+        {{ $summary }}
+      {{ end }}
     </div>
     {{ end }}
 

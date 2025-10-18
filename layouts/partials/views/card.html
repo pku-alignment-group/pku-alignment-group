@@ -1,0 +1,55 @@
+{{/* Local override of card view: show only first paragraph for posts */}}
+{{ $item := .item }}
+{{ $link := $item.RelPermalink }}
+{{ $target := "" }}
+{{ if $item.Params.external_link }}
+  {{ $link = $item.Params.external_link }}
+  {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+{{ end }}
+
+{{/* Extract first paragraph for posts */}}
+{{ $firstPara := "" }}
+{{ if eq $item.Type "post" }}
+  {{ $paras := findRE "(?s)<p[\\s\\S]*?</p>" $item.Content 1 }}
+  {{ if gt (len $paras) 0 }}
+    {{ $firstPara = index $paras 0 }}
+  {{ end }}
+{{ end }}
+
+<div class="card-simple view-card">
+
+  {{/* Meta */}}
+  <div class="article-metadata">
+    <span class="article-date">
+      {{ $item.Date.Format (site.Params.date_format | default "Jan 2, 2006") }}
+    </span>
+    <span class="middot-divider"></span>
+    <span class="article-reading-time">{{ i18n "minute_read" (dict "Count" ($item.ReadingTime)) }}</span>
+  </div>
+
+  {{/* Featured image */}}
+  {{ with (partial "blox-core/functions/get_featured_image.html" $item) }}
+    <a href="{{ $link }}" {{ $target | safeHTMLAttr }}>
+      <div class="img-hover-zoom">
+        <img src="{{ .RelPermalink }}" class="article-banner" alt="{{ $item.Title }}" loading="lazy">
+      </div>
+    </a>
+  {{ end }}
+
+  <div class="section-subheading article-title mb-1 mt-3">
+    <a href="{{ $link }}" {{ $target | safeHTMLAttr }}>{{ $item.Title }}</a>
+  </div>
+
+  <a href="{{ $link }}" {{ $target | safeHTMLAttr }} class="summary-link">
+    <div class="article-style">
+      {{ if and (eq $item.Type "post") $firstPara }}
+        {{ $firstPara | safeHTML }}
+      {{ else }}
+        {{ with $item.Summary }}{{ . }}{{ end }}
+      {{ end }}
+    </div>
+  </a>
+
+</div>
+
+

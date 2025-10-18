@@ -6,7 +6,6 @@ image:
 ---
 
 **PKU-Alignment Group has 4 papers accepted to NeurIPS 2025, including 2 Spotlights. Full abstracts and project links are provided below in one page.**
-
 Our NeurIPS 2025 papers advances safety alignment and human preference learning across multimodal and embodied AI. SafeVLA proposes an integrated safety approach that formulates safety-constrained policy optimization for vision-language-action models, achieving substantial safety gains while preserving task performance. InterMT introduces the first multi-turn, interleaved multimodal preference dataset with expert oversight and establishes InterMT-Bench, revealing multi-turn scaling behavior for judge models. Generative RLHF-V unifies generative reward modeling with multimodal RLHF in a two-stage pipeline, delivering consistent performance improvements and analyzing reward hacking and generalization. Safe RLHF-V pioneers multimodal safety alignment with dual-preference data and a multi-level guardrail system, significantly improving both safety and helpfulness. Together, these works contribute scalable datasets, principled algorithms, and evaluation protocols that move alignment closer to robust, reliable deployment in complex real-world settings.
 
 <div class="paper-card">
