@@ -29,9 +29,9 @@ author_notes:
 - ""
 
 date: "2024-01-01T00:00:00Z"
-publication_types: ['article']
-publication: "Arxiv 2024."
-publication_short: "Arxiv"
+publication_types: ['paper-conference']
+publication: "ACL 2025 Main."
+publication_short: "ACL2025"
 
 summary: "PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference"
 

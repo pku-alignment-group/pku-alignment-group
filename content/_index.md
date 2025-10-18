@@ -101,6 +101,20 @@ sections:
       view: compact
       columns: '1'
 
+  - block: collection
+    content:
+      title: Latest Publications
+      text: |
+        {{% cta cta_link="./publication/" cta_text="See All →" %}}
+      count: 4
+      filters:
+        folders:
+          - publication
+        publication_type: 'paper-conference'
+    design:
+      view: compact
+      columns: '1'
+
   - block: markdown
     content:
       title:

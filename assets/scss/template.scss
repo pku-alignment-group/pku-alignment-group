@@ -8,6 +8,11 @@
   justify-content: center;
 }
 
+// 隐藏集合区块底部内置的“See all”按钮，保留自定义CTA
+.see-all a[href*="/publication-type/"] {
+  display: none !important;
+}
+
 // 参考Stanford CV Lab的People页面设计
 .people-widget-stanford {
   max-width: 85%;
