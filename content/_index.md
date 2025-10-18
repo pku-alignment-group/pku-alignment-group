@@ -10,7 +10,7 @@ sections:
       slides:
       - title: PKU-Alignment Group @Pair-LAB
         content: 'AI Safety and Alignment!'
-        align: right
+        align: center
         background:
           image:
             filename: welcome.jpg
@@ -34,8 +34,7 @@ sections:
           position: right
           color: '#666'
       - title: Professor Yang Yaodong took part in the 2025 China · AI Festival aired on CCTV-1. 
-        content: 'Say:'
-        align: left
+        align: center
         background:
           image:
             filename: AI-TV-Yaodong-Yang.png
@@ -43,6 +42,11 @@ sections:
               brightness: 0.7
           position: center
           color: '#555'
+        link:
+          icon: external-link-alt
+          icon_pack: fas
+          text: CCTV 报道
+          url: https://www.cctv.com/2025/07/27/ARTItNl75GhUaA7HTa6SqqxU250727.shtml
     design:
       # Slide height is automatic unless you force a specific height (e.g. '400px')
       slide_height: ''
